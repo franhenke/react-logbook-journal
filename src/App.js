@@ -1,20 +1,69 @@
 import React, { useState, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
+import { Redirect, Switch, Route } from 'react-router-dom'
+
+import * as ROUTES from './constants/routes'
 import { loadFromLocal, saveToLocal } from './hooks/useLocalStorage'
 import AddJournalEntryForm from './components/AddJournalEntryForm/AddJournalEntryForm'
+import JournalList from './components/AddJournalEntryForm/Journals/JournalList'
 
 const App = () => {
+  const [editing, setEditing] = useState(false)
+  const initialFormState = {
+    id: null,
+    date: '',
+    place: '',
+    category: '',
+    caption: '',
+    entry: '',
+    image: '',
+  }
+  const [selectedJournal, setSelectedJournal] = useState(initialFormState)
   const [journalEntries, setJournalEntries] = useState(
     loadFromLocal('myJournalEntries') || []
   )
-
   useEffect(() => {
     saveToLocal('myJournalEntries', journalEntries)
   }, [journalEntries])
 
+  const deleteContact = (id) => {
+    setJournalEntries(journalEntries.filter((journal) => journal.id !== id))
+    setEditing(false)
+  }
+
+  const editRow = (journal) => {
+    setEditing(true)
+    setSelectedJournal({
+      id: journal.id,
+      firstName: journal.firstName,
+      lastName: journal.lastName,
+    })
+  }
+
+  const updateJournal = (id, updatedJournal) => {
+    setEditing(false)
+    setJournalEntries(
+      journalEntries.map((journal) =>
+        journal.id === id ? updatedJournal : journal
+      )
+    )
+  }
+
   return (
     <div>
-      <AddJournalEntryForm onFormSubmit={handleJournalEntry} />
+      <Switch>
+        <Redirect exact from="/" to={ROUTES.HOME} />
+        <Route
+          exact
+          path={ROUTES.JOURNALS}
+          component={() => <JournalList journalEntries={journalEntries} />}
+        />
+        <Route
+          exact
+          path={ROUTES.JOURNALFORM}
+          component={() => <AddJournalEntryForm />}
+        />
+      </Switch>
     </div>
   )
 

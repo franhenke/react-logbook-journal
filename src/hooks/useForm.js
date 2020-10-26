@@ -24,13 +24,6 @@ export default function useForm(validate, submitCallback) {
     console.log(inputs)
   }
 
-  const setUrlToInput = (url) => {
-    setInputs({
-      ...inputs,
-      image: url,
-    })
-  }
-
   const Msg = () => (
     <div data-cy="toast">
       <p>You've successfully created a memory</p>
@@ -51,11 +44,12 @@ export default function useForm(validate, submitCallback) {
       draggable: true,
       progress: undefined,
     })
+
     setInputs('')
     setTimeout(() => {
       history.push('/home')
     }, 5000)
   }
 
-  return [inputs, inputErrors, handleChange, handleSubmit, setUrlToInput]
+  return [inputs, inputErrors, handleChange, handleSubmit]
 }

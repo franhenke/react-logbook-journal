@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import TextareaAutosize from 'react-textarea-autosize'
 import 'react-toastify/dist/ReactToastify.css'
@@ -19,49 +19,21 @@ AddJournalEntryForm.propTypes = {
 }
 
 export default function AddJournalEntryForm({ onFormSubmit }) {
-  const [
-    values,
-    inputErrors,
-    handleChange,
-    handleSubmit,
-    setUrlToValues,
-  ] = useForm(validateJournalEntry, exportEntries)
+  const [values, inputErrors, handleChange, handleSubmit] = useForm(
+    validateJournalEntry,
+    handleLocalStorage
+  )
 
-  const [fileUrl, setFileUrl] = useState(null)
   const currentDate = dayjs().format('DD/MM/YYYY')
   const [isLoading, setIsLoading] = useState(false)
   const [image, setImage] = useState('')
 
   const disableButton =
     !values.date ||
-    !values.category ||
     !values.place ||
     !values.caption ||
     !values.entry ||
     Object.keys(inputErrors).length !== 0
-
-  async function uploadImage(event) {
-    const files = event.target.files
-    const data = new FormData()
-    data.append('file', files[0])
-    data.append('upload_preset', PRESET)
-    setIsLoading(true)
-    console.log(files)
-
-    const response = await fetch(
-      `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`,
-      { method: 'POST', body: data }
-    )
-    const image = await response.json()
-    setImage(image.secure_url)
-    setIsLoading(false)
-    console.log(image)
-  }
-
-  useEffect(() => {
-    setUrlToValues(fileUrl)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fileUrl])
 
   return (
     <form className="form" onSubmit={handleSubmit} noValidate>
@@ -142,15 +114,31 @@ export default function AddJournalEntryForm({ onFormSubmit }) {
       </div>
       {isLoading && <p>image is loading...</p>}
 
-      <button>Add to journal</button>
-
-      {/* <input type="file" setFileUrl={setFileUrl} /> */}
+      <button disabled={disableButton}>Add to journal</button>
 
       {/* <button values={values} disabled={disableButton} /> */}
     </form>
   )
 
-  function exportEntries(values) {
+  async function uploadImage(event) {
+    const files = event.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', PRESET)
+    setIsLoading(true)
+    console.log(files)
+
+    const response = await fetch(
+      `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`,
+      { method: 'POST', body: data }
+    )
+    const image = await response.json()
+    setImage(image.secure_url)
+    setIsLoading(false)
+    console.log(image)
+  }
+
+  function handleLocalStorage(values) {
     onFormSubmit(values)
     values.image = image
     console.log(values)
