@@ -1,7 +1,69 @@
+.entry {
+  margin-bottom: 0.5em;
+  border-bottom: 0.5px solid rgba(25, 26, 41, 0.1);
+  border: 1px solid #eee;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
 .entry-image {
   height: 45px;
   width: 45px;
   border-radius: 50%;
   border: 0.5px solid rgba(25, 26, 41, 0.1);
   margin-bottom: 0.5em;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5em;
+}
+
+.journal-button-edit,
+.journal-button-delete,
+.journal-button-cancel,
+.journal-button-update {
+  width: 100px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  background: transparent;
+  outline: none;
+  border: 0.5px solid rgba(25, 26, 41, 0.1);
+  text-align: center;
+  margin: 0.5em;
+  cursor: pointer;
+  color: $text-color;
+}
+
+.button-add-date {
+  width: 150px;
+  padding: 5px 20px;
+  background: none;
+  border: none;
+}
+
+.journal-button-delete {
+  &:hover {
+    color: white;
+    background: rgba(160, 48, 66, 0.9);
+  }
+}
+
+.journal-button-edit,
+.journal-button-update {
+  width: 150px;
+  &:hover {
+    color: white;
+    background: rgba(156, 190, 188);
+  }
+}
+.journal-button-cancel {
+  &:hover {
+    color: #414449;
+    background: rgba(202, 204, 204);
+  }
 }

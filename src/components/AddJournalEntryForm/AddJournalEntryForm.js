@@ -20,7 +20,7 @@ AddJournalEntryForm.propTypes = {
 }
 
 export default function AddJournalEntryForm() {
-  const { handleJournalEntry } = useContext(GlobalContext)
+  const { handleJournalEntry, setEditing } = useContext(GlobalContext)
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     validateJournalEntry,
     handleLocalStorage
@@ -115,8 +115,17 @@ export default function AddJournalEntryForm() {
         )}
       </div>
       {isLoading && <p>image is loading...</p>}
-
-      <button disabled={disableButton}>Add to journal</button>
+      <div className="button-container">
+        <button className="journal-button-update" disabled={disableButton}>
+          Add to journal
+        </button>
+        <button
+          className="journal-button-cancel"
+          onClick={() => setEditing(false)}
+        >
+          Cancel
+        </button>
+      </div>
 
       {/* <button values={values} disabled={disableButton} /> */}
     </form>

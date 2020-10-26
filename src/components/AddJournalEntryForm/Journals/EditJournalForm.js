@@ -72,7 +72,7 @@ const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
         <div className="button-container">
           <button className="journal-button-update">Update Journal</button>
           <button
-            className="contact-button-cancel"
+            className="journal-button-cancel"
             onClick={() => setEditing(false)}
           >
             Cancel

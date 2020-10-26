@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WeatherData = ({ data }) => {
+const WeatherDataDisplay = ({ data }) => {
   const current = data.list[0]
   return (
     <div className="main">
@@ -23,4 +23,4 @@ const WeatherData = ({ data }) => {
   )
 }
 
-export default WeatherData
+export default WeatherDataDisplay

@@ -15,20 +15,22 @@ const JournalEntry = ({
     <>
       <div className="entry">
         {entry.image ? (
-          <img src={entry.image} alt="" className=".entry-image" />
+          <img src={entry.image} alt="" className="entry-image" />
         ) : (
-          <img src={plusIcon} alt="" className=".entry-image" />
+          <img src={plusIcon} alt="" className="entry-image" />
         )}
-
+        <p>{entry.date}</p>
+        <p>{entry.place}</p>
         <h3>{entry.caption}</h3>
+        <p>{entry.entry}</p>
       </div>
 
       <div className="button-container">
-        <button className="contact-button-edit" onClick={() => editRow(entry)}>
+        <button className="journal-button-edit" onClick={() => editRow(entry)}>
           Edit
         </button>
         <button
-          className="contact-button-delete"
+          className="journal-button-delete"
           onClick={() => deleteEntry(entry.id)}
         >
           Delete

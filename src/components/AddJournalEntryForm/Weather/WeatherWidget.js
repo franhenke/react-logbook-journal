@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useGeoWeather, useQueryWeather } from '../../../hooks/useWeather'
 import spinner from '../../../assets/icons/spinner.svg'
-import WeatherData from './WeatherData'
+import WeatherDataDisplay from './WeatherDataDisplay'
 
 const WeatherWidget = () => {
   const [data, setData] = useState(null)
@@ -28,7 +28,7 @@ const WeatherWidget = () => {
   ) : (
     <>
       {data && data.cod === '200' ? (
-        <WeatherData data={data} />
+        <WeatherDataDisplay data={data} />
       ) : (
         data && <h3>{data.message.toUpperCase()}</h3>
       )}
