@@ -1,6 +1,6 @@
 // custom hook to fetch weather data
 import { useState, useEffect } from 'react'
-import useGeolocation from '../utilities/useGeolocation'
+import useGeolocation from './useGeolocation'
 
 const WEATHER_API = process.env.REACT_APP_WEATHER_API_KEY
 

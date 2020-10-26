@@ -1,9 +1,10 @@
 import React from 'react'
+import WeatherWidget from '../components/AddJournalEntryForm/Weather/WeatherWidget'
 
 const Home = () => {
   return (
     <>
-      <h1>Your last entries</h1>
+      <WeatherWidget />
     </>
   )
 }
