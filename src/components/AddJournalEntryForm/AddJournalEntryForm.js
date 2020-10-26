@@ -18,7 +18,7 @@ AddJournalEntryForm.propTypes = {
   error: PropTypes.string,
 }
 
-export default function AddJournalEntryForm({ onFormSubmit }) {
+export default function AddJournalEntryForm({ handleJournalEntry }) {
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     validateJournalEntry,
     handleLocalStorage
@@ -139,7 +139,7 @@ export default function AddJournalEntryForm({ onFormSubmit }) {
   }
 
   function handleLocalStorage(values) {
-    onFormSubmit(values)
+    handleJournalEntry(values)
     values.image = image
     console.log(values)
     return values

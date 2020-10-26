@@ -6,6 +6,7 @@ import * as ROUTES from './constants/routes'
 import { loadFromLocal, saveToLocal } from './hooks/useLocalStorage'
 import AddJournalEntryForm from './components/AddJournalEntryForm/AddJournalEntryForm'
 import JournalList from './components/AddJournalEntryForm/Journals/JournalList'
+import Home from './pages/homepage'
 
 const App = () => {
   const [editing, setEditing] = useState(false)
@@ -26,7 +27,7 @@ const App = () => {
     saveToLocal('myJournalEntries', journalEntries)
   }, [journalEntries])
 
-  const deleteContact = (id) => {
+  const deleteEntry = (id) => {
     setJournalEntries(journalEntries.filter((journal) => journal.id !== id))
     setEditing(false)
   }
@@ -35,8 +36,12 @@ const App = () => {
     setEditing(true)
     setSelectedJournal({
       id: journal.id,
-      firstName: journal.firstName,
-      lastName: journal.lastName,
+      date: journal.date,
+      place: journal.place,
+      category: journal.category,
+      caption: journal.caption,
+      entry: journal.entry,
+      image: journal.image,
     })
   }
 
@@ -53,15 +58,28 @@ const App = () => {
     <div>
       <Switch>
         <Redirect exact from="/" to={ROUTES.HOME} />
+        <Route exact path={ROUTES.HOME} component={() => <Home />} />
         <Route
           exact
           path={ROUTES.JOURNALS}
-          component={() => <JournalList journalEntries={journalEntries} />}
+          component={() => (
+            <JournalList
+              journalEntries={journalEntries}
+              deleteEntry={deleteEntry}
+              editRow={editRow}
+              updateJournal={updateJournal}
+              editing={editing}
+              setEditing={setEditing}
+              selectedJournal={selectedJournal}
+            />
+          )}
         />
         <Route
           exact
           path={ROUTES.JOURNALFORM}
-          component={() => <AddJournalEntryForm />}
+          component={() => (
+            <AddJournalEntryForm handleJournalEntry={handleJournalEntry} />
+          )}
         />
       </Switch>
     </div>
