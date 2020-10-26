@@ -7,6 +7,9 @@ import dayjs from 'dayjs'
 import useForm from '../../hooks/useForm'
 import validateJournalEntry from './JournalFormValidation.js'
 
+const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
+const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
+
 AddJournalEntryForm.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string,
@@ -23,8 +26,11 @@ export default function AddJournalEntryForm({ onFormSubmit }) {
     handleSubmit,
     setUrlToValues,
   ] = useForm(validateJournalEntry, exportEntries)
+
   const [fileUrl, setFileUrl] = useState(null)
   const currentDate = dayjs().format('DD/MM/YYYY')
+  const [isLoading, setIsLoading] = useState(false)
+  const [image, setImage] = useState('')
 
   const disableButton =
     !values.date ||
@@ -33,6 +39,24 @@ export default function AddJournalEntryForm({ onFormSubmit }) {
     !values.caption ||
     !values.entry ||
     Object.keys(inputErrors).length !== 0
+
+  async function uploadImage(event) {
+    const files = event.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', PRESET)
+    setIsLoading(true)
+    console.log(files)
+
+    const response = await fetch(
+      `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`,
+      { method: 'POST', body: data }
+    )
+    const image = await response.json()
+    setImage(image.secure_url)
+    setIsLoading(false)
+    console.log(image)
+  }
 
   useEffect(() => {
     setUrlToValues(fileUrl)
@@ -104,6 +128,19 @@ export default function AddJournalEntryForm({ onFormSubmit }) {
         placeholder="tell your story.."
         error={inputErrors.entry}
       />
+      <div>
+        {image ? (
+          <img src={image} alt="profile" className="form-image-preview" />
+        ) : (
+          <input
+            type="file"
+            name="image"
+            onChange={uploadImage}
+            value={values.image}
+          />
+        )}
+      </div>
+      {isLoading && <p>image is loading...</p>}
 
       <button>Add to journal</button>
 
@@ -115,6 +152,7 @@ export default function AddJournalEntryForm({ onFormSubmit }) {
 
   function exportEntries(values) {
     onFormSubmit(values)
+    values.image = image
     console.log(values)
     return values
   }
