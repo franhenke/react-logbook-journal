@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import TextareaAutosize from 'react-textarea-autosize'
 import 'react-toastify/dist/ReactToastify.css'
 import dayjs from 'dayjs'
 
+import { GlobalContext } from '../../context/GlobalContext'
 import useForm from '../../hooks/useForm'
 import validateJournalEntry from './JournalFormValidation.js'
 
@@ -18,7 +19,8 @@ AddJournalEntryForm.propTypes = {
   error: PropTypes.string,
 }
 
-export default function AddJournalEntryForm({ handleJournalEntry }) {
+export default function AddJournalEntryForm() {
+  const { handleJournalEntry } = useContext(GlobalContext)
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     validateJournalEntry,
     handleLocalStorage

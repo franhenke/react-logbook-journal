@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../../../context/GlobalContext'
 import * as ROUTES from '../../../constants/routes'
 import JournalEntry from './JournalEntry'
 
-const JournalList = ({
-  journalEntries,
-  deleteEntry,
-  editing,
-  setEditing,
-  editRow,
-  updateJournal,
-  selectedJournal,
-}) => {
+const JournalList = () => {
+  const {
+    journalEntries,
+    deleteEntry,
+    editing,
+    setEditing,
+    editRow,
+    updateJournal,
+    selectedJournal,
+  } = useContext(GlobalContext)
+
   return (
     <div className="journals-wrapper">
       {journalEntries.length > 0 ? (
