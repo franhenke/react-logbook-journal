@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useGeoWeather, useQueryWeather } from '../../../hooks/useWeather'
+import spinner from '../../../assets/icons/spinner.svg'
 import WeatherData from './WeatherData'
 
 const WeatherWidget = () => {
@@ -20,7 +21,11 @@ const WeatherWidget = () => {
     }
   }, [queryWeatherData])
 
-  return (
+  return !data ? (
+    <div className="loader">
+      <img src={spinner} alt="" />
+    </div>
+  ) : (
     <>
       {data && data.cod === '200' ? (
         <WeatherData data={data} />
