@@ -7,7 +7,7 @@ useForm.propTypes = {
   validate: PropTypes.object,
 }
 
-export default function useForm(validate) {
+export default function useForm(validate, submitCallback) {
   const [inputs, setInputs] = useState({})
   const [inputErrors, setInputErrors] = useState({})
 
@@ -40,6 +40,7 @@ export default function useForm(validate) {
   let history = useHistory()
   const handleSubmit = (event) => {
     event.preventDefault()
+    submitCallback(inputs)
 
     toast(<Msg />, {
       position: 'bottom-center',

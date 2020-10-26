@@ -15,14 +15,14 @@ AddJournalEntryForm.propTypes = {
   error: PropTypes.string,
 }
 
-export default function AddJournalEntryForm() {
+export default function AddJournalEntryForm({ onFormSubmit }) {
   const [
     values,
     inputErrors,
     handleChange,
     handleSubmit,
     setUrlToValues,
-  ] = useForm(validateJournalEntry)
+  ] = useForm(validateJournalEntry, exportEntries)
   const [fileUrl, setFileUrl] = useState(null)
   const currentDate = dayjs().format('DD/MM/YYYY')
 
@@ -112,4 +112,10 @@ export default function AddJournalEntryForm() {
       {/* <button values={values} disabled={disableButton} /> */}
     </form>
   )
+
+  function exportEntries(values) {
+    onFormSubmit(values)
+    console.log(values)
+    return values
+  }
 }
