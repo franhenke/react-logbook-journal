@@ -4,7 +4,7 @@ import WeatherWidget from '../components/Weather/WeatherWidget'
 
 const Home = () => {
   return (
-    <div className="grid-2col ">
+    <div className="grid ">
       <WeatherWidget />
       <Tabbar />
     </div>

@@ -48,7 +48,7 @@ export default function useForm(validate, submitCallback) {
     setInputs('')
     setTimeout(() => {
       history.push('/home')
-    }, 5000)
+    }, 2000)
   }
 
   return [inputs, inputErrors, handleChange, handleSubmit]

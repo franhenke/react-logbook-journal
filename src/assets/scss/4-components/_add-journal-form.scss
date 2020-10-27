@@ -20,3 +20,10 @@
 .form-header {
   margin-bottom: 1em;
 }
+
+.form-image-preview {
+  height: 100px;
+  width: 100px;
+  object-position: 50% 50%;
+  border: 0.5px solid rgba(25, 26, 41, 0.2);
+}

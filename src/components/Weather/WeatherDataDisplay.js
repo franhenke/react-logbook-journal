@@ -5,21 +5,17 @@ const WeatherDataDisplay = ({ data }) => {
   return (
     <div className="weather-wrapper">
       <div className="main">
-        <div className="weather">
-          <h3 className="weather-title">
-            {data.city.name}, {data.city.country}
-          </h3>
-
-          <div className="temp">
-            <img
-              src={`https://openweathermap.org/img/w/${current.weather[0].icon}.png`}
-              alt=""
-              className="icon"
-            />
-            <p>{current.main.temp}&deg;C</p>
-          </div>
-          <p className="temp_desc">{current.weather[0].description}</p>
+        <div className="temp">
+          <img
+            src={`https://openweathermap.org/img/w/${current.weather[0].icon}.png`}
+            alt=""
+            className="icon"
+          />
+          <p>{current.main.temp}&deg;C</p>
         </div>
+        <h3 className="weather-title">
+          {data.city.name}, {data.city.country}
+        </h3>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import * as ROUTES from '../../constants/routes'
-import { makeStyles } from '@material-ui/core/styles'
+
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg'
@@ -23,8 +23,8 @@ const Tabbar = () => {
         value={value}
         onChange={handleChange}
         variant="fullWidth"
-        indicatorColor="success"
-        textColor="success"
+        indicatorColor="primary"
+        textColor="primary"
         aria-label="icon label tabs example"
       >
         <Tab

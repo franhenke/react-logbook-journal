@@ -16,7 +16,7 @@ const JournalList = () => {
   } = useContext(GlobalContext)
 
   return (
-    <div className="journals-wrapper">
+    <div className="journals-wrapper grid-journal_page">
       {journalEntries.length > 0 ? (
         journalEntries.map((entry) => (
           <JournalEntry

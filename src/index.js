@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { ThemeProvider } from '@material-ui/core/styles'
+import theme from './theme'
 import './assets/scss/base.scss'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <App />
+      </Router>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
