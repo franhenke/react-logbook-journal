@@ -5,8 +5,8 @@
   grid-template-rows: 20% 10% 60% 10%;
   grid-template-areas:
     'header1 header2'
-    'main1 main2'
     'main main'
+    'main2 main2'
     'footer footer';
   margin: 0;
 }

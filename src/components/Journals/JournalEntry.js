@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 import plusIcon from '../../assets/icons/plus-circle.svg'
 import EditJournalForm from './EditJournalForm'
 
-const JournalEntry = ({
-  entry,
-  selectedJournal,
-  deleteEntry,
-  editing,
-  setEditing,
-  editRow,
-  updateJournal,
-}) => {
+const JournalEntry = () => {
+  const {
+    entry,
+    deleteEntry,
+    editing,
+    setEditing,
+    editRow,
+    updateJournal,
+    selectedJournal,
+  } = useContext(GlobalContext)
   return (
     <>
       <div className="entry">

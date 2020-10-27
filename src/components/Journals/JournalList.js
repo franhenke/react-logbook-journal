@@ -5,31 +5,11 @@ import * as ROUTES from '../../constants/routes'
 import JournalEntry from './JournalEntry'
 
 const JournalList = () => {
-  const {
-    journalEntries,
-    deleteEntry,
-    editing,
-    setEditing,
-    editRow,
-    updateJournal,
-    selectedJournal,
-  } = useContext(GlobalContext)
-
+  const { journalEntries } = useContext(GlobalContext)
   return (
-    <div className="journals-wrapper grid-journal_page">
+    <div className="journal-list-container">
       {journalEntries.length > 0 ? (
-        journalEntries.map((entry) => (
-          <JournalEntry
-            key={entry.id}
-            entry={entry}
-            deleteEntry={deleteEntry}
-            editRow={editRow}
-            updateJournal={updateJournal}
-            selectedJournal={selectedJournal}
-            editing={editing}
-            setEditing={setEditing}
-          />
-        ))
+        journalEntries.map((entry) => <JournalEntry key={entry.id} />)
       ) : (
         <div>No entries, yet</div>
       )}
