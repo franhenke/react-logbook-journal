@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import * as ROUTES from '../../constants/routes'
 
 import Tabs from '@material-ui/core/Tabs'
@@ -25,7 +25,7 @@ const Tabbar = () => {
         variant="fullWidth"
         indicatorColor="primary"
         textColor="primary"
-        aria-label="icon label tabs example"
+        aria-label="tabbar"
       >
         <Tab
           icon={<HomeIcon />}

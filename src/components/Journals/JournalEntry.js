@@ -3,9 +3,8 @@ import { GlobalContext } from '../../context/GlobalContext'
 import plusIcon from '../../assets/icons/plus-circle.svg'
 import EditJournalForm from './EditJournalForm'
 
-const JournalEntry = () => {
+const JournalEntry = ({ entry }) => {
   const {
-    entry,
     deleteEntry,
     editing,
     setEditing,

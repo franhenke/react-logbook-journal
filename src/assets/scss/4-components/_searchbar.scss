@@ -1,0 +1,31 @@
+.searchbar-container {
+  grid-area: header2;
+  display: flex;
+  justify-content: right;
+  align-self: end;
+  align-items: center;
+  padding: 1em 1em;
+}
+
+.searchbar-formfield {
+  position: relative;
+  height: 2em;
+  border-bottom: $border;
+
+  img {
+    height: 1.2em;
+    cursor: pointer;
+    z-index: 10;
+  }
+}
+
+.searchbar-inputfield {
+  background: $background;
+  position: absolute;
+  border: none;
+  padding: 0 1em;
+  font-size: 1em;
+  &:focus {
+    outline: none;
+  }
+}

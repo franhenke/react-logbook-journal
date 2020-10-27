@@ -9,7 +9,9 @@ const JournalList = () => {
   return (
     <div className="journal-list-container">
       {journalEntries.length > 0 ? (
-        journalEntries.map((entry) => <JournalEntry key={entry.id} />)
+        journalEntries.map((entry) => (
+          <JournalEntry key={entry.id} entry={entry} />
+        ))
       ) : (
         <div>No entries, yet</div>
       )}
