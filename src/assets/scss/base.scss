@@ -1,9 +1,16 @@
+// 01-Helper
 @import './1-helpers/variables';
+
+@import './2-layout/grids';
+
+// 03-Basics / UI components
+
+// 04-Components
 @import './4-components/add-journal-form';
 @import './4-components/journal-entry';
 @import './4-components/weather-widget';
 @import './4-components/tabbar';
-@import './2-layout/grids';
+@import './4-components/recent-journals';
 
 * {
   margin: 0;
