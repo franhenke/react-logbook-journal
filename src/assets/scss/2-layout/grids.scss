@@ -1,5 +1,7 @@
 .grid {
+  justify-items: center;
   height: 100vh;
+  max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 20% 10% 60% 10%;
@@ -9,4 +11,5 @@
     'main2 main2'
     'footer footer';
   margin: 0;
+  padding: 0 1.5rem;
 }

@@ -9,7 +9,7 @@ const Searchbar = ({ searchInput, setSearchTerm }) => {
   const searchField = useRef()
 
   const animateWidth = useSpring({
-    width: isSearchBarVisible ? '190px' : '0px',
+    width: isSearchBarVisible ? '150px' : '0px',
   })
 
   function handleSearch(event) {

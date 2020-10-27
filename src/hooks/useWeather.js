@@ -8,21 +8,6 @@ export function useGeoWeather() {
   let location = useGeolocation()
   const [data, setData] = useState(null)
 
-  // effect to clear localstorage after every 2hrs
-  useEffect(() => {
-    let hours = 2
-    let now = new Date().getTime()
-    let setupTime = localStorage.getItem('setupTime')
-    if (setupTime === null) {
-      localStorage.setItem('setupTime', now)
-    } else {
-      if (now - setupTime > hours * 60 * 60 * 1000) {
-        localStorage.clear()
-        localStorage.setItem('setupTime', now)
-      }
-    }
-  }, [])
-
   useEffect(() => {
     if (location) {
       // get data from localStorage if already stored

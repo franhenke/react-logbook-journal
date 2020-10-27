@@ -11,6 +11,7 @@ const Journals = () => {
   const results = journalEntries.filter(
     (journalEntries) =>
       journalEntries.caption.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      journalEntries.entry.toLowerCase().includes(searchTerm.toLowerCase()) ||
       journalEntries.place.toLowerCase().includes(searchTerm.toLowerCase()) ||
       journalEntries.category.toLowerCase().includes(searchTerm.toLowerCase())
   )
@@ -18,7 +19,11 @@ const Journals = () => {
   return (
     <div className="grid ">
       <Searchbar setSearchTerm={setSearchTerm} searchInput={searchTerm} />
-      <JournalList searchResults={results} />
+      {results.length === 0 ? (
+        <div>No entries found. Please change your search.</div>
+      ) : (
+        <JournalList searchResults={results} />
+      )}
       <Tabbar />
     </div>
   )
