@@ -1,5 +1,5 @@
 import React from 'react'
-import plusIcon from '../../../assets/icons/plus-circle.svg'
+import plusIcon from '../../assets/icons/plus-circle.svg'
 import EditJournalForm from './EditJournalForm'
 
 const JournalEntry = ({

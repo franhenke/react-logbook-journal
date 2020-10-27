@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useGeoWeather, useQueryWeather } from '../../../hooks/useWeather'
-import spinner from '../../../assets/icons/spinner.svg'
+import { useGeoWeather, useQueryWeather } from '../../hooks/useWeather'
+import spinner from '../../assets/icons/spinner.svg'
 import WeatherDataDisplay from './WeatherDataDisplay'
 
 const WeatherWidget = () => {

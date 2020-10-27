@@ -2,9 +2,10 @@ import React from 'react'
 import { Redirect, Switch, Route } from 'react-router-dom'
 import { GlobalProvider } from './context/GlobalContext'
 import * as ROUTES from './constants/routes'
-import AddJournalEntryForm from './components/AddJournalEntryForm/AddJournalEntryForm'
-import JournalList from './components/AddJournalEntryForm/Journals/JournalList'
+import AddJournalEntryForm from './components/Journals/AddJournalEntryForm'
+import JournalList from './components/Journals/JournalList'
 import Home from './pages/homepage'
+import Tabbar from './components/Tabbar/Tabbar'
 
 const App = () => {
   return (

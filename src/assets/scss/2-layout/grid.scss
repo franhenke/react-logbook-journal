@@ -1,10 +1,12 @@
 .grid-2col {
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 25% 15% 60% 70px;
+  grid-template-rows: 25% 10% 60% 5%;
   grid-template-areas:
     'menu weather'
     'headline headline'
     'content content'
     'footer footer';
+  margin: 0;
 }
