@@ -8,7 +8,7 @@ import Home from './pages/homepage'
 
 const App = () => {
   return (
-    <div>
+    <div className="grid">
       <GlobalProvider>
         <Switch>
           <Redirect exact from="/" to={ROUTES.HOME} />

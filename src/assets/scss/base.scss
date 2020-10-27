@@ -1,7 +1,7 @@
-@import './_variables';
-@import './_add-journal-form';
-@import './_journal-entry';
-@import './_weather-widget';
+@import './1-helpers/variables';
+@import './4-components/add-journal-form';
+@import './4-components/journal-entry';
+@import './4-components/weather-widget';
 
 * {
   margin: 0;
@@ -24,9 +24,4 @@ h3 {
 
 h3 {
   font-weight: 400;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
 }
