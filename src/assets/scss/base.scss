@@ -2,10 +2,12 @@
 @import './1-helpers/variables';
 @import './2-layout/grids';
 
-// 03-Basics / UI components
+// 03-UI components
+@import './3-UI/button';
 
 // 04-Components
 @import './4-components/add-journal-form';
+@import './4-components/edit-journal-form';
 @import './4-components/journal-entry';
 @import './4-components/weather-widget';
 @import './4-components/tabbar';

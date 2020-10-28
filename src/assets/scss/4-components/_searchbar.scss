@@ -1,23 +1,24 @@
 .searchbar-container {
-  height: 2rem;
   grid-area: header2;
   display: flex;
-  justify-content: right;
-  align-self: end;
-  align-items: center;
-  padding: 1em 1em;
+  justify-self: end;
+  align-items: flex-end;
+  padding: 1em 0;
 }
 
 .searchbar-formfield {
   position: relative;
-  height: 2em;
-  border-bottom: $border;
+  margin-right: -10px;
+  height: 24px;
+  max-width: 90%;
+  border-radius: 5px;
+  border: $border;
+}
 
-  img {
-    height: 1.2em;
-    cursor: pointer;
-    z-index: 10;
-  }
+.searchbar-icon {
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .searchbar-inputfield {

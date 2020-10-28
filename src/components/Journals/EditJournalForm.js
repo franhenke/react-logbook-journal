@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
+import cancelIcon from '../../assets/icons/cross.svg'
 
 const EditJournalForm = ({
   setEditing,
@@ -26,6 +27,10 @@ const EditJournalForm = ({
 
   return (
     <div className="journal-form-wrapper">
+      <button className="button-cancel" onClick={() => setEditing(false)}>
+        <img src={cancelIcon} alt="cancel" />
+      </button>
+      <h2>Edit journal entry</h2>
       <form className="form" onSubmit={handleSubmit}>
         <label>Date</label>
         <input
@@ -63,6 +68,7 @@ const EditJournalForm = ({
         />
         <label>Entry</label>
         <TextareaAutosize
+          rowsMax={7}
           aria-label="empty textarea"
           placeholder="Empty"
           type="text"

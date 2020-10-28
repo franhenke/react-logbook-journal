@@ -2,13 +2,13 @@ import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { animated, useSpring } from 'react-spring'
 import searchIcon from '../../assets/icons/search.svg'
-import cross from '../../assets/icons/cross.svg'
+import crossIcon from '../../assets/icons/cross.svg'
 
 const Searchbar = ({ searchInput, setSearchTerm }) => {
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false)
   const searchField = useRef()
   const animateWidth = useSpring({
-    width: isSearchBarVisible ? '150px' : '0px',
+    width: isSearchBarVisible ? '0px' : '150px',
   })
 
   function handleSearch(event) {
@@ -29,11 +29,21 @@ const Searchbar = ({ searchInput, setSearchTerm }) => {
   return (
     <div className="searchbar-container">
       {isSearchBarVisible ? (
-        <img src={cross} alt="" onClick={endSearch} />
+        <img
+          src={searchIcon}
+          alt=""
+          className="searchbar-icon"
+          onClick={endSearch}
+        />
       ) : (
-        <img src={searchIcon} alt="" onClick={openSearchBar} />
+        <img
+          src={crossIcon}
+          alt=""
+          className="searchbar-icon"
+          onClick={openSearchBar}
+        />
       )}
-      <animated.div
+      <animated.form
         className="searchbar-formfield"
         style={animateWidth}
         onSubmit={(event) => event.preventDefault()}
@@ -42,11 +52,11 @@ const Searchbar = ({ searchInput, setSearchTerm }) => {
           className="searchbar-inputfield"
           ref={searchField}
           type="text"
-          placeholder="search for an entry"
+          placeholder="search"
           value={searchInput}
           onChange={handleSearch}
         />
-      </animated.div>
+      </animated.form>
     </div>
   )
 }
