@@ -6,6 +6,7 @@ import Home from './pages/homepage'
 import Journals from './pages/journals'
 import AddJournal from './pages/addjournal'
 import JournalDetailsPage from './pages/journalDetailsPage'
+import { BookmarksList } from './components/Journals/BookmarksList'
 
 const App = () => {
   return (
@@ -23,6 +24,11 @@ const App = () => {
             exact
             path={ROUTES.JOURNALFORM}
             component={() => <AddJournal />}
+          />
+          <Route
+            exact
+            path={ROUTES.BOOKMARKS}
+            component={() => <BookmarksList />}
           />
         </Switch>
       </GlobalProvider>

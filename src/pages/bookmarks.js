@@ -1,16 +1,7 @@
 import React, { useContext } from 'react'
-import { GlobalContext } from '../../context/GlobalContext'
+import { BookmarksList } from '../components/Journals/BookmarksList'
 
 const Bookmarks = () => {
-  const { journalEntries } = useContext(GlobalContext)
-
-  const booksMarks = journalEntries.filter(
-    (journal) => journal.bookmarked === true
-  )
-
-  console.log(booksMarks)
-
-  return <div></div>
+  return <BookmarksList />
 }
-
 export default Bookmarks

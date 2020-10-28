@@ -17,19 +17,7 @@ const JournalEntry = ({ entry }) => {
     editRow,
     updateJournal,
     selectedJournal,
-    bookmarkHandler,
   } = useContext(GlobalContext)
-
-  const [bookmarked, setBookmarked] = useState(false)
-
-  useEffect(() => {
-    localStorage.setItem('bookmark', JSON.stringify(bookmarked))
-  }, [bookmarked])
-
-  function getBookmarks() {
-    const storedBookmarks = JSON.parse(localStorage.getItem('bookmark'))
-    return storedBookmarks || false
-  }
 
   const completeHandler = () => {
     setJournalEntries(

@@ -49,7 +49,7 @@ const Tabbar = () => {
           icon={<StarIcon />}
           label="favorites"
           component={Link}
-          to={ROUTES.JOURNALFORM}
+          to={ROUTES.BOOKMARKS}
         />
         <Tab
           icon={<MapIcon />}
