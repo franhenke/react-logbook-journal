@@ -7,7 +7,6 @@ import cross from '../../assets/icons/cross.svg'
 const Searchbar = ({ searchInput, setSearchTerm }) => {
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false)
   const searchField = useRef()
-
   const animateWidth = useSpring({
     width: isSearchBarVisible ? '150px' : '0px',
   })

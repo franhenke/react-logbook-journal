@@ -18,8 +18,16 @@ const Journals = () => {
 
   return (
     <div className="grid ">
-      <Searchbar setSearchTerm={setSearchTerm} searchInput={searchTerm} />
-      {results.length === 0 ? (
+      {journalEntries.length === 0 ? (
+        <div className="message-no-entries">
+          <h2>You have no journal entries, yet</h2>
+          <h3>Let´s create memories</h3>
+        </div>
+      ) : (
+        <Searchbar setSearchTerm={setSearchTerm} searchInput={searchTerm} />
+      )}
+
+      {journalEntries.length > 0 && results.length === 0 ? (
         <div>No entries found. Please change your search.</div>
       ) : (
         <JournalList searchResults={results} />

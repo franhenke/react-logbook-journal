@@ -1,6 +1,5 @@
 // 01-Helper
 @import './1-helpers/variables';
-
 @import './2-layout/grids';
 
 // 03-Basics / UI components
@@ -15,6 +14,9 @@
 
 //05-Pages
 @import './5-pages/_journals';
+
+// Typography
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 * {
   margin: 0;
@@ -35,6 +37,7 @@ h1,
 h2,
 h3 {
   margin-bottom: 0.5em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h3 {
