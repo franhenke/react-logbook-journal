@@ -21,7 +21,6 @@ export default function useForm(validate, submitCallback) {
       ...inputs,
       [event.target.name]: event.target.value,
     }))
-    console.log(inputs)
   }
 
   const Msg = () => (

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const RecentJournals = ({ entry }) => {
   return (
@@ -8,6 +9,7 @@ const RecentJournals = ({ entry }) => {
       <h4>{entry.place}</h4>
       <h4>{entry.caption}</h4>
       <p>{entry.entry}</p>
+      <Link to={`/journals/${entry.caption}`}>... see more</Link>
     </div>
   )
 }

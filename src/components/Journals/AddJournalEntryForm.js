@@ -102,6 +102,7 @@ export default function AddJournalEntryForm() {
         placeholder="tell your story.."
         error={inputErrors.entry}
       />
+
       <div>
         {image ? (
           <img src={image} alt="profile" className="form-image-preview" />
@@ -115,6 +116,7 @@ export default function AddJournalEntryForm() {
         )}
       </div>
       {isLoading && <p>image is loading...</p>}
+
       <div className="button-container">
         <button className="journal-button-update" disabled={disableButton}>
           Add to journal

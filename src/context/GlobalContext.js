@@ -13,6 +13,7 @@ export const GlobalProvider = ({ children }) => {
     caption: '',
     entry: '',
     image: '',
+    bookmarked: false,
   }
   const [selectedJournal, setSelectedJournal] = useState(initialFormState)
   const [journalEntries, setJournalEntries] = useState(
@@ -21,6 +22,28 @@ export const GlobalProvider = ({ children }) => {
   useEffect(() => {
     saveToLocal('myJournalEntries', journalEntries)
   }, [journalEntries])
+
+  function handleJournalEntry(newJournalEntry) {
+    newJournalEntry.id = uuid()
+    setJournalEntries([...journalEntries, newJournalEntry])
+  }
+
+  journalEntries.bookmarked = false
+  console.log(journalEntries)
+
+  const bookmarkHandler = () => {
+    setJournalEntries(
+      journalEntries.map((journal) => {
+        if (journal.id === journalEntries.id) {
+          return {
+            ...journal,
+            bookmarked: !journal.completed,
+          }
+        }
+        return journal
+      })
+    )
+  }
 
   const deleteEntry = (id) => {
     setJournalEntries(journalEntries.filter((journal) => journal.id !== id))
@@ -49,16 +72,13 @@ export const GlobalProvider = ({ children }) => {
     )
   }
 
-  function handleJournalEntry(newJournalEntry) {
-    newJournalEntry.id = uuid()
-    setJournalEntries([...journalEntries, newJournalEntry])
-  }
-
   return (
     <GlobalContext.Provider
       value={{
+        initialFormState,
         journalEntries,
         setJournalEntries,
+        handleJournalEntry,
         editing,
         setEditing,
         selectedJournal,
@@ -66,7 +86,7 @@ export const GlobalProvider = ({ children }) => {
         deleteEntry,
         editRow,
         updateJournal,
-        handleJournalEntry,
+        bookmarkHandler,
       }}
     >
       {children}

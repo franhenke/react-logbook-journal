@@ -9,6 +9,8 @@ import DialogContent from '@material-ui/core/DialogContent'
 
 const JournalEntry = ({ entry }) => {
   const {
+    journalEntries,
+    setJournalEntries,
     deleteEntry,
     editing,
     setEditing,
@@ -18,7 +20,7 @@ const JournalEntry = ({ entry }) => {
     bookmarkHandler,
   } = useContext(GlobalContext)
 
-  const [bookmarked, setBookmarked] = useState(getBookmarks)
+  const [bookmarked, setBookmarked] = useState(false)
 
   useEffect(() => {
     localStorage.setItem('bookmark', JSON.stringify(bookmarked))
@@ -29,8 +31,18 @@ const JournalEntry = ({ entry }) => {
     return storedBookmarks || false
   }
 
-  function toggleBookmark() {
-    setBookmarked(!bookmarked)
+  const completeHandler = () => {
+    setJournalEntries(
+      journalEntries.map((journal) => {
+        if (journal.id === entry.id) {
+          return {
+            ...journal,
+            bookmarked: !journal.bookmarked,
+          }
+        }
+        return journal
+      })
+    )
   }
 
   const handleClose = () => {
@@ -49,17 +61,12 @@ const JournalEntry = ({ entry }) => {
         <p>{entry.place}</p>
         <h3>{entry.caption}</h3>
         <p>{entry.entry}</p>
+
         <Link to={`/journals/${entry.caption}`}>... see more</Link>
       </div>
-      <input
-        checked={bookmarked}
-        onChange={() => setBookmarked((prevChoice) => !prevChoice)}
-        id="checkbox"
-        className="checkbox"
-        type="checkbox"
-      />
+
       <div className="button-container">
-        <button className="journal-button-edit" onClick={bookmarkHandler}>
+        <button className="journal-button-edit" onClick={completeHandler}>
           Add to bookmarks
         </button>
         <button className="journal-button-edit" onClick={() => editRow(entry)}>
