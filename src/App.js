@@ -5,6 +5,7 @@ import * as ROUTES from './constants/routes'
 import Home from './pages/homepage'
 import Journals from './pages/journals'
 import AddJournal from './pages/addjournal'
+import JournalDetailsPage from './pages/journalDetailsPage'
 
 const App = () => {
   return (
@@ -14,6 +15,10 @@ const App = () => {
           <Redirect exact from="/" to={ROUTES.HOME} />
           <Route exact path={ROUTES.HOME} component={() => <Home />} />
           <Route exact path={ROUTES.JOURNALS} component={() => <Journals />} />
+          <Route
+            path={'/journals/:entryId'}
+            component={() => <JournalDetailsPage />}
+          />
           <Route
             exact
             path={ROUTES.JOURNALFORM}
