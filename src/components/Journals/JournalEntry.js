@@ -2,6 +2,10 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import plusIcon from '../../assets/icons/plus-circle.svg'
 import EditJournalForm from './EditJournalForm'
+import Modal from '../UI/Modal'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
 
 const JournalEntry = ({ entry }) => {
   const {
@@ -12,6 +16,11 @@ const JournalEntry = ({ entry }) => {
     updateJournal,
     selectedJournal,
   } = useContext(GlobalContext)
+
+  const handleClose = () => {
+    setEditing(false)
+  }
+
   return (
     <>
       <div className="entry">
@@ -38,16 +47,21 @@ const JournalEntry = ({ entry }) => {
         </button>
       </div>
 
-      {editing ? (
-        <div>
+      <Dialog
+        open={editing}
+        onClose={handleClose}
+        aria-labelledby="edit-form-dialog"
+      >
+        <DialogContent>
           <h2>Edit journal entry</h2>
           <EditJournalForm
             setEditing={setEditing}
             selectedJournal={selectedJournal}
             updateJournal={updateJournal}
+            handleClose={handleClose}
           />
-        </div>
-      ) : null}
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 
-const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
+const EditJournalForm = ({
+  setEditing,
+  handleClose,
+  selectedJournal,
+  updateJournal,
+}) => {
   const [editedEntry, setEditedEntry] = useState(selectedJournal)
 
   useEffect(() => {
@@ -56,7 +62,9 @@ const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
           onChange={handleInputChange}
         />
         <label>Entry</label>
-        <input
+        <TextareaAutosize
+          aria-label="empty textarea"
+          placeholder="Empty"
           type="text"
           name="entry"
           value={editedEntry.entry}
@@ -71,10 +79,7 @@ const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
         />
         <div className="button-container">
           <button className="journal-button-update">Update Journal</button>
-          <button
-            className="journal-button-cancel"
-            onClick={() => setEditing(false)}
-          >
+          <button className="journal-button-cancel" onClick={handleClose}>
             Cancel
           </button>
         </div>

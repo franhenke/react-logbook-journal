@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
-import TextareaAutosize from 'react-textarea-autosize'
+import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import 'react-toastify/dist/ReactToastify.css'
 import dayjs from 'dayjs'
 
