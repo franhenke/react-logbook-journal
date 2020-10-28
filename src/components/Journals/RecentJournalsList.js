@@ -5,7 +5,7 @@ import RecentJournals from './RecentJournals'
 const RecentJournalsList = () => {
   const { journalEntries } = useContext(GlobalContext)
 
-  const recentJournals = journalEntries.slice(0, 2)
+  const recentJournals = journalEntries.slice(0, 3)
   console.log(recentJournals)
 
   return (

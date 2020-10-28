@@ -17,7 +17,7 @@ const Journals = () => {
   )
 
   return (
-    <div className="grid ">
+    <div className="grid">
       {journalEntries.length === 0 ? (
         <div className="message-no-entries">
           <h2>You have no journal entries, yet</h2>

@@ -1,0 +1,29 @@
+.home-header {
+  grid-area: main;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  align-self: start;
+
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+.home-headline {
+  position: relative;
+  font-size: 1.25rem;
+  z-index: 100;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -5;
+    width: 95px;
+    height: 3em;
+    left: -0.25em;
+    bottom: 0.15em;
+    border-bottom: 8px solid $mint;
+    z-index: -10;
+  }
+}

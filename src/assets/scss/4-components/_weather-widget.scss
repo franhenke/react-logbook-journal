@@ -1,22 +1,22 @@
 .weather-wrapper {
   grid-area: header2;
-  align-self: center;
-  padding: 1rem;
+  align-self: end;
+  padding: 2rem 1rem;
 }
 
 .weather-title {
-  color: #333;
-  font-family: 'Roboto';
-  font-weight: 500;
+  color: $text-color_grey;
+  opacity: 60%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 1rem;
   width: 100%;
   text-align: right;
-}
-.main {
-  max-width: 80vw !important;
+  margin-top: 0.5rem;
 }
 
 .temp {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
@@ -26,15 +26,16 @@
 
   p {
     width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
     text-align: right;
-    position: relative;
   }
 }
 
 .icon {
   position: absolute;
-  right: 130px;
   height: 30px;
+  left: 2.5rem;
 }
 
 @media (max-width: 700px) {

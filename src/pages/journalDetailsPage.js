@@ -3,6 +3,7 @@ import { GlobalContext } from '../context/GlobalContext'
 import * as ROUTES from '../constants/routes'
 import chevron from '../assets/icons/chevron-left.svg'
 import { useParams, Link } from 'react-router-dom'
+import Tabbar from '../components/Tabbar/Tabbar'
 
 const JournalDetailsPage = () => {
   const { journalEntries } = useContext(GlobalContext)
@@ -14,7 +15,7 @@ const JournalDetailsPage = () => {
   const { image, place, date, category, caption, entry } = selectedEntry
 
   return (
-    <div>
+    <div className="grid">
       <img src={image} alt="featured image" />
       <p>{date}</p>
       <p>{place}</p>
@@ -24,6 +25,7 @@ const JournalDetailsPage = () => {
       <Link to={ROUTES.HOME}>
         <img src={chevron} alt="go-back" />
       </Link>
+      <Tabbar />
     </div>
   )
 }

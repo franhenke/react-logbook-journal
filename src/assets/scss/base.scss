@@ -15,6 +15,7 @@
 @import './4-components/_searchbar';
 
 //05-Pages
+@import './5-pages/_homepage';
 @import './5-pages/_journals';
 
 // Typography
@@ -25,9 +26,13 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: $text-color_grey;
+}
+
 html body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   margin: 0;
   background-color: $background;
@@ -37,11 +42,7 @@ html body {
 
 h1,
 h2,
-h3 {
-  margin-bottom: 0.5em;
-  font-family: 'Montserrat', sans-serif;
-}
-
-h3 {
+h3,
+h4 {
   font-weight: 400;
 }

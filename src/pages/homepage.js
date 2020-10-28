@@ -5,7 +5,11 @@ import WeatherWidget from '../components/Weather/WeatherWidget'
 
 const Home = () => {
   return (
-    <div className="grid ">
+    <div className="grid">
+      <div className="home-header">
+        <h2>Your recent</h2>
+        <h1 className="home-headline"> journal entries</h1>
+      </div>
       <WeatherWidget />
       <RecentJournalsList />
       <Tabbar />
