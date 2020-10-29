@@ -1,0 +1,113 @@
+.back-home-icon {
+  margin-bottom: 1rem;
+}
+
+.bookmark-header {
+  grid-area: header1;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  align-self: center;
+  padding-left: 1rem;
+
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+.bookmark-headline {
+  position: relative;
+  font-size: 1.25rem;
+  z-index: 100;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -5;
+    width: 95px;
+    height: 3em;
+    left: -0.25em;
+    bottom: 0.15em;
+    border-bottom: 8px solid $mint;
+    z-index: -10;
+  }
+}
+
+.bookmark-container {
+  max-width: 700px;
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.bookmarked-journals {
+}
+
+.bookmarked-journal_container {
+  justify-items: center;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  margin-bottom: 2rem;
+}
+
+.bookmarked-image_container {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -5;
+    width: 140px;
+    height: 170px;
+    left: -0.75em;
+    bottom: -0.5em;
+    background: $mint;
+    z-index: -10;
+  }
+}
+
+.bookmarked-image {
+  height: 150px;
+  width: 140px;
+  object-position: 50% 50%;
+
+  z-index: 50;
+}
+
+.bookmarked_place,
+.bookmarked_date {
+  font-size: 0.785rem;
+  font-weight: 400;
+  color: $text-color_grey;
+  opacity: 60%;
+  margin-top: 0.5rem;
+}
+.bookmarked_caption {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $text-color;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.bookmarked_entry {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: $text-color;
+  margin-bottom: 0.5rem;
+
+  a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding-left: 0.75rem;
+  }
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalContext'
 import plusIcon from '../../assets/icons/plus-circle.svg'
-import { loadFromLocal, saveToLocal } from '../../hooks/useLocalStorage'
+import Truncate from 'react-truncate'
 import EditJournalForm from './EditJournalForm'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
@@ -45,12 +45,22 @@ const JournalEntry = ({ entry }) => {
         ) : (
           <img src={plusIcon} alt="" className="entry-image" />
         )}
-        <p>{entry.date}</p>
-        <p>{entry.place}</p>
-        <h3>{entry.caption}</h3>
-        <p>{entry.entry}</p>
-
-        <Link to={`/journals/${entry.caption}`}>... see more</Link>
+        <div className="journal-container">
+          <p className="journal_place">{entry.place}</p>
+          <h4 className="journal_caption">{entry.caption}</h4>
+          <Truncate
+            className="journal_entry"
+            lines={2}
+            ellipsis={
+              <span>
+                ... <Link to={`/journals/${entry.caption}`}>Read more</Link>
+              </span>
+            }
+          >
+            {entry.entry}
+          </Truncate>
+          <p className="journal_date">{entry.date}</p>
+        </div>
       </div>
 
       <div className="button-container">

@@ -16,12 +16,16 @@ const JournalDetailsPage = () => {
 
   return (
     <div className="grid">
-      <img src={image} alt="featured image" />
-      <p>{date}</p>
-      <p>{place}</p>
-      <p>{category}</p>
-      <p>{caption}</p>
-      <p>{entry}</p>
+      <div className="featured-image-wrapper">
+        <img src={image} alt="featured image" />
+      </div>
+      <div className="content-container">
+        <h3>{caption}</h3>
+        <h3>{date}</h3>
+        <h3>{place}</h3>
+        <h3>{category}</h3>
+        <h3>{entry}</h3>
+      </div>
       <Link to={ROUTES.HOME}>
         <img src={chevron} alt="go-back" />
       </Link>
