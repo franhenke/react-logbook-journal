@@ -29,7 +29,6 @@ export const GlobalProvider = ({ children }) => {
   }
 
   journalEntries.bookmarked = false
-  console.log(journalEntries)
 
   const bookmarkHandler = () => {
     setJournalEntries(

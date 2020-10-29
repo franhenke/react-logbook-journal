@@ -11,6 +11,28 @@
   text-align: left;
 }
 
+.journal-container {
+  position: relative;
+}
+
+.journal-button-delete {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.5rem;
+  height: 30px;
+  width: 30px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background: transparent;
+
+  img {
+    height: 70%;
+    width: 70%;
+    border-radius: 50%;
+  }
+}
+
 .entry-image {
   height: 90px;
   width: 80px;
@@ -28,6 +50,21 @@
   padding-top: 0.25rem;
 }
 
+.journal_caption {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -5;
+    width: 140px;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+    background: $mint;
+    z-index: -10;
+  }
+}
 .journal_entry {
   font-size: 0.75rem;
   font-weight: 400;
@@ -48,7 +85,6 @@
 }
 
 .journal-button-edit,
-.journal-button-delete,
 .journal-button-cancel,
 .journal-button-update {
   width: 100px;
@@ -68,17 +104,6 @@
   padding: 5px 20px;
   background: none;
   border: none;
-}
-
-.journal-button-delete {
-  &:hover {
-    color: white;
-    background: rgba(160, 48, 66, 0.9);
-  }
-}
-
-.completed {
-  opacity: 0.3;
 }
 
 .journal-button-edit,
