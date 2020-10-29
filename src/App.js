@@ -7,6 +7,7 @@ import Journals from './pages/journals'
 import AddJournal from './pages/addjournal'
 import JournalDetailsPage from './pages/journalDetailsPage'
 import Bookmarks from './pages/bookmarks'
+import NotFound from './pages/404'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
             path={ROUTES.BOOKMARKS}
             component={() => <Bookmarks />}
           />
+          <Route component={NotFound} />
         </Switch>
       </GlobalProvider>
     </>
