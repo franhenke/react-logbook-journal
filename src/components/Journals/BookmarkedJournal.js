@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import * as ROUTES from '../../constants/routes'
 import Truncate from 'react-truncate'
 import Tabbar from '../Tabbar/Tabbar'
 

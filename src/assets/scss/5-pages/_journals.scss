@@ -11,6 +11,20 @@
   }
 }
 
+.journal-page-header {
+  grid-area: header1;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  align-self: center;
+  padding-left: 1rem;
+
+  h2 {
+    font-size: 1rem;
+    padding-top: 2rem;
+  }
+}
+
 .message-no-entries {
   width: 100%;
   grid-column: 1 / 3;

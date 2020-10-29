@@ -1,8 +1,8 @@
 .entry {
   margin-bottom: 0.5em;
-  border-bottom: 0.5px solid rgba(25, 26, 41, 0.1);
-  border: 1px solid #eee;
+  border-bottom: 1px solid $border;
   margin: 10px 0;
+  padding-bottom: 1rem;
   display: grid;
   width: 100%;
   grid-template-columns: 30% 70%;
@@ -17,7 +17,7 @@
 
 .journal-button-delete {
   position: absolute;
-  bottom: 0rem;
+  bottom: -0.8rem;
   right: 0.5rem;
   height: 30px;
   width: 30px;
@@ -84,39 +84,17 @@
   margin-bottom: 0.5em;
 }
 
-.journal-button-edit,
-.journal-button-cancel,
 .journal-button-update {
-  width: 100px;
-  padding: 5px 20px;
+  width: 150px;
+  padding: 7px 20px;
   border-radius: 5px;
-  background: transparent;
   outline: none;
-  border: 0.5px solid rgba(25, 26, 41, 0.1);
-  text-align: center;
-  margin: 0.5em;
-  cursor: pointer;
-  color: $text-color;
-}
-
-.button-add-date {
-  width: 150px;
-  padding: 5px 20px;
-  background: none;
   border: none;
-}
-
-.journal-button-edit,
-.journal-button-update {
-  width: 150px;
-  &:hover {
-    color: white;
-    background: rgba(156, 190, 188);
-  }
-}
-.journal-button-cancel {
-  &:hover {
-    color: #414449;
-    background: rgba(202, 204, 204);
-  }
+  margin: 0.5em 0;
+  cursor: pointer;
+  color: $text-color_grey;
+  background: $mint-blue;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
 }

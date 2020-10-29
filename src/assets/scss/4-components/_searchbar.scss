@@ -1,28 +1,28 @@
 .searchbar-container {
   grid-area: header2;
   display: flex;
-  justify-self: end;
+  justify-self: center;
   align-items: flex-end;
-  padding: 1em 0;
+  padding: 1.5em 0;
 }
 
 .searchbar-formfield {
   position: relative;
-  margin-right: -10px;
-  height: 24px;
+  height: 20px;
   max-width: 90%;
   border-radius: 5px;
   border: $border;
 }
 
 .searchbar-icon {
-  height: 24px;
+  height: 20px;
   cursor: pointer;
   z-index: 10;
 }
 
 .searchbar-inputfield {
   background: $background;
+  color: $text-color;
   position: absolute;
   border: none;
   padding: 0 1em;

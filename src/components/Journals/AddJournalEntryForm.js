@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import 'react-toastify/dist/ReactToastify.css'
 import dayjs from 'dayjs'
-
+import cancelIcon from '../../assets/icons/cross.svg'
 import sendIcon from '../../assets/icons/send.svg'
 import { GlobalContext } from '../../context/GlobalContext'
 import useForm from '../../hooks/useForm'
@@ -39,105 +39,100 @@ export default function AddJournalEntryForm() {
     Object.keys(inputErrors).length !== 0
 
   return (
-    <form className="form" onSubmit={handleSubmit} noValidate>
-      <div className="form-header">
-        <h2>Create</h2>
-        <h1 className="form-headline"> a new memory</h1>
-      </div>
-      <label htmlFor="date">Date</label>
-      <input
-        onChange={(event) => handleChange(event)}
-        value={values.date || ''}
-        setValue={values.date || ''}
-        type="date"
-        name="date"
-        id="date"
-        max={currentDate}
-        required
-        autofocus
-      />
+    <>
+      <button className="add-button-cancel" onClick={() => setEditing(false)}>
+        <img src={cancelIcon} alt="cancel" />
+      </button>
+      <form className="form" onSubmit={handleSubmit} noValidate>
+        <div className="form-header">
+          <h2>Create</h2>
+          <h1 className="form-headline"> a new memory</h1>
+        </div>
+        <label htmlFor="date">Date</label>
+        <input
+          onChange={(event) => handleChange(event)}
+          value={values.date || ''}
+          setValue={values.date || ''}
+          type="date"
+          name="date"
+          id="date"
+          max={currentDate}
+          required
+          autofocus
+        />
 
-      <label htmlFor="category">Category</label>
-      <select
-        onChange={(event) => handleChange(event)}
-        value={values.category || ''}
-        name="category"
-        id="category"
-        required
-      >
-        <option value="Memory">Memory</option>
-        <option value="Review">Review</option>
-        <option value="Thoughts">Thoughts</option>
-      </select>
+        <label htmlFor="category">Category</label>
+        <select
+          onChange={(event) => handleChange(event)}
+          value={values.category || ''}
+          name="category"
+          id="category"
+          required
+        >
+          <option value="Memory">Memory</option>
+          <option value="Review">Review</option>
+          <option value="Thoughts">Thoughts</option>
+        </select>
 
-      <label htmlFor="place">Place</label>
-      <input
-        onChange={(event) => handleChange(event)}
-        value={values.place || ''}
-        type="text"
-        name="place"
-        id="place"
-        min="5"
-        required
-        placeholder="Add a place or location to your entry"
-      />
-      <label htmlFor="caption">Caption</label>
-      <input
-        onChange={(event) => handleChange(event)}
-        value={values.caption || ''}
-        type="text"
-        name="caption"
-        id="caption"
-        min="5"
-        required
-        data-testid="caption"
-        placeholder="Add a title to your entry"
-      />
-      <label htmlFor="Entry">Entry</label>
+        <label htmlFor="place">Place</label>
+        <input
+          onChange={(event) => handleChange(event)}
+          value={values.place || ''}
+          type="text"
+          name="place"
+          id="place"
+          min="5"
+          required
+          placeholder="Add a place or location to your entry"
+        />
+        <label htmlFor="caption">Caption</label>
+        <input
+          onChange={(event) => handleChange(event)}
+          value={values.caption || ''}
+          type="text"
+          name="caption"
+          id="caption"
+          min="5"
+          required
+          data-testid="caption"
+          placeholder="Add a title to your entry"
+        />
+        <label htmlFor="Entry">Entry</label>
 
-      <TextareaAutosize
-        className="form-textarea"
-        rowsMax={7}
-        aria-label="textarea"
-        onChange={(event) => handleChange(event)}
-        value={values.entry || ''}
-        type="text"
-        name="entry"
-        id="entry"
-        min="10"
-        required
-        placeholder="tell your story.."
-        error={inputErrors.entry}
-      />
+        <TextareaAutosize
+          className="form-textarea"
+          rowsMax={7}
+          aria-label="textarea"
+          onChange={(event) => handleChange(event)}
+          value={values.entry || ''}
+          type="text"
+          name="entry"
+          id="entry"
+          min="10"
+          required
+          placeholder="tell your story.."
+          error={inputErrors.entry}
+        />
 
-      <div>
-        {image ? (
-          <img src={image} alt="profile" className="form-image-preview" />
-        ) : (
-          <input
-            type="file"
-            name="image"
-            onChange={uploadImage}
-            value={values.image}
-          />
-        )}
-      </div>
-      {isLoading && <p>image is loading...</p>}
+        <div>
+          {image ? (
+            <img src={image} alt="profile" className="form-image-preview" />
+          ) : (
+            <input
+              type="file"
+              name="image"
+              onChange={uploadImage}
+              value={values.image}
+            />
+          )}
+        </div>
+        {isLoading && <p>image is loading...</p>}
 
-      <div className="button-container">
         <button className="journal-button-submit" disabled={disableButton}>
           <img src={sendIcon} alt="submit" />
         </button>
-        <button
-          className="journal-button-cancel"
-          onClick={() => setEditing(false)}
-        >
-          Cancel
-        </button>
-      </div>
-
-      {/* <button values={values} disabled={disableButton} /> */}
-    </form>
+      </form>
+    </>
   )
 
   async function uploadImage(event) {

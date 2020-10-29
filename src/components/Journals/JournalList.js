@@ -9,9 +9,6 @@ const JournalList = ({ searchResults }) => {
       {searchResults.map((entry) => (
         <JournalEntry key={entry.id} entry={entry} />
       ))}
-      <Link className="link-to-form" to={ROUTES.JOURNALFORM}>
-        Add a new memory
-      </Link>
     </div>
   )
 }

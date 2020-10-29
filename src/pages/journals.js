@@ -18,6 +18,10 @@ const Journals = () => {
 
   return (
     <div className="grid">
+      <div className="journal-page-header">
+        <h2>Your</h2>
+        <h1 className="home-headline"> journal entries</h1>
+      </div>
       {journalEntries.length === 0 ? (
         <div className="message-no-entries">
           <h2>You have no journal entries, yet</h2>

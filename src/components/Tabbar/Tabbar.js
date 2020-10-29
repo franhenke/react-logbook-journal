@@ -41,6 +41,7 @@ const Tabbar = () => {
         />
         <Tab
           icon={<AddIcon />}
+          className="add-icon"
           label=""
           component={Link}
           to={ROUTES.JOURNALFORM}

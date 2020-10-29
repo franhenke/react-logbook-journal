@@ -80,9 +80,6 @@ const EditJournalForm = ({
 
         <div className="button-container">
           <button className="journal-button-update">Update Journal</button>
-          <button className="journal-button-cancel" onClick={handleClose}>
-            Cancel
-          </button>
         </div>
       </form>
     </div>
