@@ -6,7 +6,7 @@ import Home from './pages/homepage'
 import Journals from './pages/journals'
 import AddJournal from './pages/addjournal'
 import JournalDetailsPage from './pages/journalDetailsPage'
-import { BookmarksList } from './components/Journals/BookmarksList'
+import Bookmarks from './pages/bookmarks'
 
 const App = () => {
   return (
@@ -28,7 +28,7 @@ const App = () => {
           <Route
             exact
             path={ROUTES.BOOKMARKS}
-            component={() => <BookmarksList />}
+            component={() => <Bookmarks />}
           />
         </Switch>
       </GlobalProvider>

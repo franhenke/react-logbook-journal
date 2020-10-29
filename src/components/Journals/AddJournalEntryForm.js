@@ -4,6 +4,7 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import 'react-toastify/dist/ReactToastify.css'
 import dayjs from 'dayjs'
 
+import sendIcon from '../../assets/icons/send.svg'
 import { GlobalContext } from '../../context/GlobalContext'
 import useForm from '../../hooks/useForm'
 import validateJournalEntry from './JournalFormValidation.js'
@@ -39,7 +40,10 @@ export default function AddJournalEntryForm() {
 
   return (
     <form className="form" onSubmit={handleSubmit} noValidate>
-      <h1>Create a memory</h1>
+      <div className="form-header">
+        <h2>Create</h2>
+        <h1 className="form-headline"> a new memory</h1>
+      </div>
       <label htmlFor="date">Date</label>
       <input
         onChange={(event) => handleChange(event)}
@@ -91,7 +95,10 @@ export default function AddJournalEntryForm() {
       />
       <label htmlFor="Entry">Entry</label>
 
-      <textarea
+      <TextareaAutosize
+        className="form-textarea"
+        rowsMax={7}
+        aria-label="textarea"
         onChange={(event) => handleChange(event)}
         value={values.entry || ''}
         type="text"
@@ -118,8 +125,8 @@ export default function AddJournalEntryForm() {
       {isLoading && <p>image is loading...</p>}
 
       <div className="button-container">
-        <button className="journal-button-update" disabled={disableButton}>
-          Add to journal
+        <button className="journal-button-submit" disabled={disableButton}>
+          <img src={sendIcon} alt="submit" />
         </button>
         <button
           className="journal-button-cancel"

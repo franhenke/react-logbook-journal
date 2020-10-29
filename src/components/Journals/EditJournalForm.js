@@ -68,21 +68,16 @@ const EditJournalForm = ({
         />
         <label>Entry</label>
         <TextareaAutosize
+          className="form-textarea"
           rowsMax={7}
-          aria-label="empty textarea"
+          aria-label="textarea"
           placeholder="Empty"
           type="text"
           name="entry"
           value={editedEntry.entry}
           onChange={handleInputChange}
         />
-        <label>Image</label>
-        <input
-          type="text"
-          name="lastName"
-          value={editedEntry.image}
-          onChange={handleInputChange}
-        />
+
         <div className="button-container">
           <button className="journal-button-update">Update Journal</button>
           <button className="journal-button-cancel" onClick={handleClose}>
