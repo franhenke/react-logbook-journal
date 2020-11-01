@@ -1,16 +1,18 @@
-.home-header {
-  grid-area: main;
+.page-header {
+  grid-area: header1;
   width: 100%;
   max-width: 700px;
   text-align: left;
-  align-self: start;
+  align-self: center;
+  padding-left: 1rem;
 
   h2 {
     font-size: 1rem;
+    padding-top: 2rem;
   }
 }
 
-.home-headline {
+.page-headline {
   position: relative;
   font-size: 1.25rem;
   z-index: 100;

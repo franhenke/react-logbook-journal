@@ -8,12 +8,12 @@ import Tabbar from '../components/Tabbar/Tabbar'
 const Bookmarks = () => {
   return (
     <div className="grid">
-      <div className="bookmark-header">
+      <div className="page-header">
         <Link to={ROUTES.HOME}>
           <img className="back-home-icon" src={chevron} alt="" />
         </Link>
         <h2>Your saved</h2>
-        <h1 className="bookmark-headline"> journal entries</h1>
+        <h1 className="page-headline"> journal entries</h1>
       </div>
       <BookmarksList />
       <Tabbar />

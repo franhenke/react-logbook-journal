@@ -9,7 +9,7 @@ const JournalEntry = ({ entry }) => {
   const { deleteEntry } = useContext(GlobalContext)
   return (
     <>
-      <div className="entry">
+      <div className="journal-entry_container">
         {entry.image ? (
           <img src={entry.image} alt="" className="entry-image" />
         ) : (
@@ -20,7 +20,7 @@ const JournalEntry = ({ entry }) => {
             <p className="journal_place">{entry.place}</p>
             <h4 className="journal_caption">{entry.caption}</h4>
             <Truncate
-              className="journal_entry"
+              className="journal_truncate"
               lines={3}
               ellipsis={<span>...</span>}
             >

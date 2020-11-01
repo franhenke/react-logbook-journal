@@ -1,0 +1,11 @@
+.homepage-header {
+  grid-area: main;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  align-self: start;
+
+  h2 {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,17 @@
+.bookmark-container {
+  max-width: 700px;
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.back-home-icon {
+  margin-bottom: 1rem;
+}

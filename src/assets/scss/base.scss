@@ -4,22 +4,22 @@
 
 // 03-UI components
 @import './3-UI/button';
+@import './3-UI/header';
 
 // 04-Components
-@import './4-components/add-journal-form';
-@import './4-components/edit-journal-form';
+@import './4-components/journal-form';
 @import './4-components/journal-entry';
 @import './4-components/weather-widget';
 @import './4-components/tabbar';
 @import './4-components/recent-journals';
 @import './4-components/searchbar';
-@import './4-components/bookmarks';
 
 //05-Pages
-@import './5-pages/homepage';
-@import './5-pages/journals';
-@import './5-pages/detailspage';
-@import './5-pages/not-found';
+@import './5-pages/home-page';
+@import './5-pages/journals-list-page';
+@import './5-pages/details-page';
+@import './5-pages/bookmarks-page';
+@import './5-pages/not-found-page';
 
 // Typography
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
@@ -27,6 +27,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {

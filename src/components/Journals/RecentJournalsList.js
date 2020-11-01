@@ -9,7 +9,7 @@ const RecentJournalsList = () => {
   console.log(recentJournals)
 
   return (
-    <div className="recent-journals">
+    <div className="recent-journals-container">
       {recentJournals.map((entry, index) => (
         <RecentJournals key={entry.index} entry={entry} />
       ))}

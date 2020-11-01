@@ -1,14 +1,14 @@
-.entry {
-  margin-bottom: 0.5em;
-  border-bottom: 1px solid $border;
-  margin: 10px 0;
-  padding-bottom: 1rem;
+.journal-content-container {
+  justify-items: center;
   display: grid;
-  width: 100%;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 40% 60%;
   grid-template-rows: auto;
-  margin-bottom: 2rem;
-  text-align: left;
+  margin-bottom: 1.85rem;
+  padding: 0.4rem 0 0 0.4rem;
+
+  a {
+    padding: 0 0.5rem;
+  }
 }
 
 .journal-container {
@@ -33,6 +33,38 @@
   }
 }
 
+.journal-image {
+  height: 150px;
+  width: 140px;
+  object-position: 50% 50%;
+  z-index: 50;
+}
+
+.image-container {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -5;
+    width: 140px;
+    height: 170px;
+    left: -0.75em;
+    bottom: -0.5em;
+    background: $mint;
+    z-index: -10;
+  }
+}
+
+.journal_place,
+.journal_date {
+  font-size: 0.785rem;
+  font-weight: 400;
+  color: $text-color_grey;
+  opacity: 60%;
+  margin-top: 0.5rem;
+}
+
 .entry-image {
   height: 90px;
   width: 80px;
@@ -41,41 +73,12 @@
   border-radius: 25%;
   border: 0.5px solid rgba(25, 26, 41, 0.1);
 }
-.journal_place,
-.journal_date {
-  font-size: 0.785rem;
+
+.journal_truncate {
+  font-size: 0.7rem;
   font-weight: 400;
-  color: $text-color_grey;
-  opacity: 60%;
-  padding-top: 0.25rem;
-}
-
-.journal_caption {
-  position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    z-index: -5;
-    width: 140px;
-    height: 5px;
-    left: 0;
-    bottom: 0;
-    background: $mint;
-    z-index: -10;
-  }
-}
-.journal_entry {
-  font-size: 0.75rem;
-  font-weight: 400;
-
-  span {
-    width: 200px;
-  }
-
-  a {
-    opacity: 0.7;
-  }
+  color: $text-color;
+  margin-bottom: 0.5rem;
 }
 
 .button-container {
@@ -97,4 +100,23 @@
   text-align: center;
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+.journal_caption {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $text-color;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -5;
+    width: 30%;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+    background: $mint;
+    z-index: -10;
+  }
 }
