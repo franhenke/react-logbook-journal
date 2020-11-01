@@ -30,7 +30,7 @@ const WeatherWidget = () => {
       {data && data.cod === '200' ? (
         <WeatherDataDisplay data={data} />
       ) : (
-        data && <h3>{data.message.toUpperCase()}</h3>
+        data && <h3 className="weather-error">Weather data not available.</h3>
       )}
     </>
   )
