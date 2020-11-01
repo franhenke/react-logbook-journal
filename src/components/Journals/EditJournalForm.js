@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import cancelIcon from '../../assets/icons/cross.svg'
 
-const EditJournalForm = ({
-  setEditing,
-  handleClose,
-  selectedJournal,
-  updateJournal,
-}) => {
+const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
   const [editedEntry, setEditedEntry] = useState(selectedJournal)
 
   useEffect(() => {

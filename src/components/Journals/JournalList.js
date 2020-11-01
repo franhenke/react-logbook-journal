@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import * as ROUTES from '../../constants/routes'
 import JournalEntry from './JournalEntry'
 
 const JournalList = ({ searchResults }) => {

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
-import * as ROUTES from '../constants/routes'
-
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
-import bookmark from '../assets/icons/bookmark.svg'
-import bookmarkFilled from '../assets/icons/bookmark-filled.svg'
+import bookmarkIcon from '../assets/icons/bookmark.svg'
+import bookmarkIconFilled from '../assets/icons/bookmark-filled.svg'
+import heroImage from '../assets/images/hero.jpg'
 import edit from '../assets/icons/edit.svg'
 import Tabbar from '../components/Tabbar/Tabbar'
 import EditJournalForm from '../components/Journals/EditJournalForm'
@@ -57,9 +56,16 @@ const JournalDetailsPage = () => {
 
   return (
     <div className="grid">
-      <div className="featured-image-wrapper">
-        <img src={image} alt="featured image" />
-      </div>
+      {image ? (
+        <div className="featured-image-wrapper">
+          <img src={image} alt="" />
+        </div>
+      ) : (
+        <div className="featured-image-wrapper">
+          <img src={heroImage} alt="" />
+        </div>
+      )}
+
       <div className="content-container">
         <h3 className="details-place">{place}</h3>
         <h3 className="details-category">{category}</h3>
@@ -70,11 +76,11 @@ const JournalDetailsPage = () => {
         <div className="button-container">
           {bookmarked === true ? (
             <button className="bookmark-icon" onClick={bookmarkHandler}>
-              <img src={bookmarkFilled} alt="" />
+              <img src={bookmarkIconFilled} alt="" />
             </button>
           ) : (
             <button className="bookmark-icon" onClick={bookmarkHandler}>
-              <img src={bookmark} alt="" />
+              <img src={bookmarkIcon} alt="" />
             </button>
           )}
 

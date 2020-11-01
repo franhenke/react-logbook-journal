@@ -13,7 +13,7 @@ const WeatherWidget = () => {
     }
   }, [geoWeatherData])
 
-  const [query, setQuery] = useState()
+  const [query] = useState()
   let queryWeatherData = useQueryWeather(query)
   useEffect(() => {
     if (queryWeatherData) {
