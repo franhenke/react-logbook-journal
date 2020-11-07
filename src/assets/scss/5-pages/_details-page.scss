@@ -1,14 +1,53 @@
 .featured-image-wrapper {
   grid-column: 1 / 3;
-  grid-row: 1 / 2;
+  grid-row: 1 / 3;
   object-position: 50% 50%;
   border: 0.5px solid rgba(25, 26, 41, 0.2);
 
   img {
-    width: 100vw;
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    font-size: 20px;
+  }
+  footer {
+    width: 75%;
+  }
+  .makeup {
+    width: 12em;
+    height: 12em;
+  }
+  .main-content {
+    padding: 7em 4em 7em 8em;
+
+    p {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 22px;
+  }
+  .main-content {
+    padding: 7em 4em 7em 10em;
+
+    p {
+      width: 30%;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .main-bg {
+    right: 10%;
   }
 }
 

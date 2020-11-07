@@ -28,22 +28,6 @@ export const GlobalProvider = ({ children }) => {
     setJournalEntries([...journalEntries, newJournalEntry])
   }
 
-  journalEntries.bookmarked = false
-
-  const bookmarkHandler = () => {
-    setJournalEntries(
-      journalEntries.map((journal) => {
-        if (journal.id === journalEntries.id) {
-          return {
-            ...journal,
-            bookmarked: !journal.completed,
-          }
-        }
-        return journal
-      })
-    )
-  }
-
   const deleteEntry = (id) => {
     setJournalEntries(journalEntries.filter((journal) => journal.id !== id))
     setEditing(false)
@@ -85,7 +69,6 @@ export const GlobalProvider = ({ children }) => {
         deleteEntry,
         editRow,
         updateJournal,
-        bookmarkHandler,
       }}
     >
       {children}

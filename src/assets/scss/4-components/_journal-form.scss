@@ -40,7 +40,7 @@
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 20%;
+    opacity: 35%;
   }
 }
 
@@ -91,4 +91,14 @@
   width: 100px;
   object-position: 50% 50%;
   border: 0.5px solid rgba(25, 26, 41, 0.2);
+}
+
+.required-info_text {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  color: $mint-blue;
+}
+
+.required {
+  color: $mint-blue;
 }

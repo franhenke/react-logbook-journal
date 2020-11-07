@@ -12,7 +12,6 @@ const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
-
     setEditedEntry({ ...editedEntry, [name]: value })
   }
 

@@ -33,7 +33,6 @@ export default function AddJournalEntryForm() {
 
   const disableButton =
     !values.date ||
-    !values.place ||
     !values.caption ||
     !values.entry ||
     Object.keys(inputErrors).length !== 0
@@ -48,7 +47,9 @@ export default function AddJournalEntryForm() {
           <h2>Create</h2>
           <h1 className="form-headline"> a new memory</h1>
         </div>
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">
+          Date <span className="required">*</span>
+        </label>
         <input
           onChange={(event) => handleChange(event)}
           value={values.date || ''}
@@ -58,7 +59,9 @@ export default function AddJournalEntryForm() {
           id="date"
           max={currentDate}
           required
+          aria-describedby="required-description"
           autofocus
+          error={inputErrors.date}
         />
 
         <label htmlFor="category">Category</label>
@@ -67,7 +70,6 @@ export default function AddJournalEntryForm() {
           value={values.category || ''}
           name="category"
           id="category"
-          required
         >
           <option value="Memory">Memory</option>
           <option value="Review">Review</option>
@@ -82,10 +84,11 @@ export default function AddJournalEntryForm() {
           name="place"
           id="place"
           min="5"
-          required
           placeholder="Add a place or location to your entry"
         />
-        <label htmlFor="caption">Caption</label>
+        <label htmlFor="caption">
+          Caption <span className="required">*</span>
+        </label>
         <input
           onChange={(event) => handleChange(event)}
           value={values.caption || ''}
@@ -94,13 +97,18 @@ export default function AddJournalEntryForm() {
           id="caption"
           min="5"
           required
+          aria-describedby="required-description"
           data-testid="caption"
           placeholder="Add a title to your entry"
+          error={inputErrors.caption}
         />
-        <label htmlFor="Entry">Entry</label>
+        <label htmlFor="Entry">
+          Entry <span className="required">*</span>
+        </label>
 
         <TextareaAutosize
           className="form-textarea"
+          aria-describedby="required-description"
           rowsMax={7}
           aria-label="textarea"
           onChange={(event) => handleChange(event)}
@@ -131,6 +139,13 @@ export default function AddJournalEntryForm() {
         <button className="journal-button-submit" disabled={disableButton}>
           <img src={sendIcon} alt="submit" />
         </button>
+        <p
+          className="required-info_text"
+          aria-hidden="true"
+          id="required-description"
+        >
+          <span className="required">*</span>Required field
+        </p>
       </form>
     </>
   )

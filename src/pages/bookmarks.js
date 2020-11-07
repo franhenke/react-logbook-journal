@@ -2,7 +2,7 @@ import React from 'react'
 import * as ROUTES from '../constants/routes'
 import { Link } from 'react-router-dom'
 import chevron from '../assets/icons/chevron-left.svg'
-import { BookmarksList } from '../components/Journals/BookmarksList'
+import { BookmarksList } from '../components/Bookmarks/BookmarksList'
 import Tabbar from '../components/Tabbar/Tabbar'
 
 const Bookmarks = () => {
