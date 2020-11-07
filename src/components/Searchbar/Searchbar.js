@@ -4,7 +4,7 @@ import searchIcon from '../../assets/icons/search.svg'
 import crossIcon from '../../assets/icons/cross.svg'
 
 const Searchbar = ({ searchInput, setSearchTerm }) => {
-  const [isSearchBarVisible, setIsSearchBarVisible] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
   const searchField = useRef()
 
   function handleSearch(event) {
@@ -12,29 +12,29 @@ const Searchbar = ({ searchInput, setSearchTerm }) => {
   }
 
   function openSearchBar() {
-    setIsSearchBarVisible(true)
+    setIsSearching(true)
     searchField.current.focus()
   }
 
   function endSearch() {
     setSearchTerm('')
-    setIsSearchBarVisible(false)
+    setIsSearching(false)
     searchField.current.focus()
   }
 
   return (
     <div className="searchbar-container">
-      {isSearchBarVisible ? (
+      {isSearching ? (
         <img
           src={crossIcon}
-          alt=""
+          alt="deleteIcon"
           className="searchbar-icon"
           onClick={endSearch}
         />
       ) : (
         <img
           src={searchIcon}
-          alt=""
+          alt="searchIcon"
           className="searchbar-icon"
           onClick={openSearchBar}
         />
@@ -47,9 +47,9 @@ const Searchbar = ({ searchInput, setSearchTerm }) => {
           className="searchbar-inputfield"
           ref={searchField}
           type="text"
-          placeholder="search..."
           value={searchInput}
           onChange={handleSearch}
+          data-testid="search-inputField"
         />
       </form>
     </div>

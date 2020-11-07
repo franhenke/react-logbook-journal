@@ -5,10 +5,6 @@ export default function validateJournalEntry(values) {
     errors.category = 'Please select a category'
   }
 
-  if (values.phone && !/^\d{4,15}$/.test(values.phone)) {
-    errors.phone = 'Bitte gib eine gültige Telefon-Nummer ohne Leerzeichen ein!'
-  }
-
   if (
     values.place &&
     values.caption &&

@@ -14,7 +14,10 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 AddJournalEntryForm.propTypes = {
   placeholder: PropTypes.string,
-  name: PropTypes.string,
+  date: PropTypes.string,
+  caption: PropTypes.string,
+  entry: PropTypes.string,
+  place: PropTypes.string,
   handleChange: PropTypes.func,
   required: PropTypes.bool,
   error: PropTypes.string,
@@ -62,6 +65,7 @@ export default function AddJournalEntryForm() {
           aria-describedby="required-description"
           autofocus
           error={inputErrors.date}
+          data-testid="filter-input-date"
         />
 
         <label htmlFor="category">Category</label>
@@ -85,6 +89,7 @@ export default function AddJournalEntryForm() {
           id="place"
           min="5"
           placeholder="Add a place or location to your entry"
+          data-testid="filter-input-place"
         />
         <label htmlFor="caption">
           Caption <span className="required">*</span>
@@ -101,6 +106,7 @@ export default function AddJournalEntryForm() {
           data-testid="caption"
           placeholder="Add a title to your entry"
           error={inputErrors.caption}
+          data-testid="filter-input-caption"
         />
         <label htmlFor="Entry">
           Entry <span className="required">*</span>
@@ -120,6 +126,7 @@ export default function AddJournalEntryForm() {
           required
           placeholder="tell your story.."
           error={inputErrors.entry}
+          data-testid="filter-input-entry"
         />
 
         <div>
