@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
+import { toast } from 'react-toastify'
 import cancelIcon from '../../assets/icons/cross.svg'
 
 const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
@@ -15,9 +16,24 @@ const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
     setEditedEntry({ ...editedEntry, [name]: value })
   }
 
+  const Msg = () => (
+    <div>
+      <p>Entry successfully updated</p>
+    </div>
+  )
+
   const handleSubmit = (event) => {
     event.preventDefault()
     updateJournal(editedEntry.id, editedEntry)
+    toast(<Msg />, {
+      position: 'bottom-center',
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 
   return (

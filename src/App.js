@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect, Switch, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import { GlobalProvider } from './context/GlobalContext'
 import * as ROUTES from './constants/routes'
 import Home from './pages/homepage'
@@ -33,6 +34,13 @@ const App = () => {
           />
           <Route component={NotFound} />
         </Switch>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar
+          closeOnClick
+          rtl={false}
+        />
       </GlobalProvider>
     </>
   )

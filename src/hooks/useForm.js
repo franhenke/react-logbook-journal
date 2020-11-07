@@ -24,7 +24,7 @@ export default function useForm(validate, submitCallback) {
   }
 
   const Msg = () => (
-    <div data-cy="toast">
+    <div>
       <p>You've successfully created a memory</p>
     </div>
   )
