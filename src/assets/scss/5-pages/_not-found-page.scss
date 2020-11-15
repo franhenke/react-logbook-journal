@@ -1,6 +1,7 @@
 .not-found {
   grid-area: main;
-  width: 100%;
+  width: 500px;
+  height: 400px;
 }
 
 .not-found-container {
@@ -11,6 +12,7 @@
 
   p {
     margin-bottom: 2rem;
+    color: $text-color_grey;
   }
 }
 

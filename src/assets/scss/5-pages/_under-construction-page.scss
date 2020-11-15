@@ -1,0 +1,26 @@
+.under-construction-container {
+  background-image: url('../../images/construction.svg');
+  position: absolute;
+  background-size: cover;
+  object-position: 70%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.under-construction {
+  grid-area: main;
+  text-align: center;
+
+  p {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    color: $text-color_grey;
+
+    text-align: center;
+  }
+}

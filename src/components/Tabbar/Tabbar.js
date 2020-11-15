@@ -56,7 +56,7 @@ const Tabbar = () => {
           icon={<MapIcon />}
           label="explore"
           component={Link}
-          to={ROUTES.JOURNALFORM}
+          to={ROUTES.EXPLORE}
         />
       </Tabs>
     </div>

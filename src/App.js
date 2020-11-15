@@ -9,6 +9,7 @@ import AddJournal from './pages/addjournal'
 import JournalDetailsPage from './pages/journalDetailsPage'
 import Bookmarks from './pages/bookmarks'
 import NotFound from './pages/404'
+import Explore from './pages/explore'
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
             path={ROUTES.BOOKMARKS}
             component={() => <Bookmarks />}
           />
+          <Route exact path={ROUTES.EXPLORE} component={() => <Explore />} />
           <Route component={NotFound} />
         </Switch>
         <ToastContainer
