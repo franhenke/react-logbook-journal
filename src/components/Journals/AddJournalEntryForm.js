@@ -106,7 +106,6 @@ export default function AddJournalEntryForm() {
           data-testid="caption"
           placeholder="Add a title to your entry"
           error={inputErrors.caption}
-          data-testid="filter-input-caption"
         />
         <label htmlFor="Entry">
           Entry <span className="required">*</span>
@@ -133,12 +132,15 @@ export default function AddJournalEntryForm() {
           {image ? (
             <img src={image} alt="profile" className="form-image-preview" />
           ) : (
-            <input
-              type="file"
-              name="image"
-              onChange={uploadImage}
-              value={values.image}
-            />
+            <label htmlFor="image">
+              Image
+              <input
+                type="file"
+                name="image"
+                onChange={uploadImage}
+                value={values.image}
+              />
+            </label>
           )}
         </div>
         {isLoading && <p>image is loading...</p>}

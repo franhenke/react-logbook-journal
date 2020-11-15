@@ -8,6 +8,7 @@ import bookmarkIconFilled from '../../assets/icons/bookmark-filled.svg'
 import heroImage from '../../assets/images/hero.jpg'
 import edit from '../../assets/icons/edit.svg'
 import EditJournalForm from '../../components/Journals/EditJournalForm'
+import Tabbar from '../Tabbar/Tabbar'
 
 const JournalDetails = () => {
   const {
@@ -19,6 +20,7 @@ const JournalDetails = () => {
     setJournalEntries,
     setEditing,
   } = useContext(GlobalContext)
+
   const { entryId } = useParams()
   const [selectedEntry] = journalEntries.filter(
     (journalEntries) => entryId === journalEntries.caption
@@ -96,10 +98,10 @@ const JournalDetails = () => {
             setEditing={setEditing}
             selectedJournal={selectedJournal}
             updateJournal={updateJournal}
-            handleClose={handleClose}
           />
         </DialogContent>
       </Dialog>
+      <Tabbar />
     </div>
   )
 }
