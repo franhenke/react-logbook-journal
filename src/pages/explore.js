@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from '../constants/routes'
-import construction from '../assets/images/construction.svg'
 import Tabbar from '../components/Tabbar/Tabbar'
 
 export const Explore = () => {
