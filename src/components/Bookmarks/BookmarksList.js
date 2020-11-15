@@ -12,7 +12,7 @@ export const BookmarksList = () => {
   return (
     <div className="bookmark-container">
       {bookmarkedJournals.map((bookmark) => (
-        <BookmarkedJournal key={bookmark.index} bookmark={bookmark} />
+        <BookmarkedJournal key={bookmark.id} bookmark={bookmark} />
       ))}
     </div>
   )
