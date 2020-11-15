@@ -12,45 +12,6 @@
   }
 }
 
-@media (min-width: 900px) {
-  body {
-    font-size: 20px;
-  }
-  footer {
-    width: 75%;
-  }
-  .makeup {
-    width: 12em;
-    height: 12em;
-  }
-  .main-content {
-    padding: 7em 4em 7em 8em;
-
-    p {
-      width: 50%;
-    }
-  }
-}
-
-@media (min-width: 1200px) {
-  body {
-    font-size: 22px;
-  }
-  .main-content {
-    padding: 7em 4em 7em 10em;
-
-    p {
-      width: 30%;
-    }
-  }
-}
-
-@media (min-width: 1400px) {
-  .main-bg {
-    right: 10%;
-  }
-}
-
 .content-container {
   position: relative;
   grid-column: 1 / 3;

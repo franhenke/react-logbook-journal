@@ -4,11 +4,16 @@
   grid-row: 2 / 4;
   width: 100%;
   height: 100%;
+  padding-left: 0.2rem;
   overflow-y: scroll;
   scrollbar-width: none;
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  img {
+    margin-left: 0.3rem;
   }
 }
 

@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 import { loadFromLocal, saveToLocal } from '../hooks/useLocalStorage'
+import journalMocks from '../assets/mocks/journalMocks'
 
 export const GlobalContext = createContext(null)
 export const GlobalProvider = ({ children }) => {
@@ -17,7 +18,7 @@ export const GlobalProvider = ({ children }) => {
   }
   const [selectedJournal, setSelectedJournal] = useState(initialFormState)
   const [journalEntries, setJournalEntries] = useState(
-    loadFromLocal('myJournalEntries') || []
+    loadFromLocal('myJournalEntries') || journalMocks
   )
   useEffect(() => {
     saveToLocal('myJournalEntries', journalEntries)
