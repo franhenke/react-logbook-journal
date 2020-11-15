@@ -2,14 +2,13 @@
   background-image: url('../../images/construction.svg');
   position: absolute;
   background-size: cover;
-  object-position: 70%;
+  object-position: 100%;
+  width: 100vw;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  min-width: 50%;
-  min-height: 50%;
 }
 
 .under-construction {
