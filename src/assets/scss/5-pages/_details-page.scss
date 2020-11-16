@@ -16,12 +16,13 @@
   position: relative;
   grid-column: 1 / 3;
   grid-row: 2 / 4;
+  min-width: 400px;
   width: 100%;
   height: 100%;
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 1.3rem;
   background: $background;
-  border: 0.5px solid rgba(25, 26, 41, 0.1);
+  border: 0.5px solid rgba(194, 195, 201, 0.1);
 }
 
 .bookmark-icon {
@@ -82,9 +83,24 @@
 
 .details-entry {
   text-align: left;
-  font-size: 1rem;
+  font-size: 1em;
+  line-height: 140%;
   font-weight: 400;
   color: $text-color;
   opacity: 80%;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
+
+  @media (min-width: 768px) {
+    margin: 1.5em 6em;
+
+    body {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      font-size: 20px;
+    }
+  }
 }
