@@ -1,8 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import 'react-toastify/dist/ReactToastify.css'
 import dayjs from 'dayjs'
+import { useHistory } from 'react-router-dom'
 import cancelIcon from '../../assets/icons/cross.svg'
 import sendIcon from '../../assets/icons/send.svg'
 import { GlobalContext } from '../../context/GlobalContext'
@@ -24,7 +25,7 @@ AddJournalEntryForm.propTypes = {
 }
 
 export default function AddJournalEntryForm() {
-  const { handleJournalEntry, setEditing } = useContext(GlobalContext)
+  const { handleJournalEntry } = useContext(GlobalContext)
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     validateJournalEntry,
     handleLocalStorage
@@ -34,6 +35,12 @@ export default function AddJournalEntryForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [image, setImage] = useState('')
 
+  const history = useHistory()
+
+  const handleGoBack = useCallback(() => {
+    history.goBack()
+  }, [])
+
   const disableButton =
     !values.date ||
     !values.caption ||
@@ -42,7 +49,7 @@ export default function AddJournalEntryForm() {
 
   return (
     <>
-      <button className="add-button-cancel" onClick={() => setEditing(false)}>
+      <button className="add-button-cancel" onClick={handleGoBack}>
         <img src={cancelIcon} alt="cancel" />
       </button>
       <form className="form" onSubmit={handleSubmit} noValidate>
@@ -74,6 +81,9 @@ export default function AddJournalEntryForm() {
           name="category"
           id="category"
         >
+          <option value="" selected disabled hidden>
+            Select a Category
+          </option>
           <option value="Memory">Memory</option>
           <option value="Review">Review</option>
           <option value="Thoughts">Thoughts</option>
