@@ -12,8 +12,13 @@
 .add-button-cancel {
   position: absolute;
   top: 1rem;
-  left: 2rem;
+  left: 1.5rem;
   background: transparent;
   border: none;
   outline: none;
+
+  img {
+    height: 1rem;
+    width: 1rem;
+  }
 }

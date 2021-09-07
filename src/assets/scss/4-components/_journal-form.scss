@@ -8,18 +8,22 @@
   grid-row: 1 / 4;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  width: 100%;
   margin: 1em;
+
+  @media (min-width: 700px) {
+    width: 40rem;
+}
 
   label {
     color: #414449;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 0.25rem;
   }
 
   input,
   select {
     margin-bottom: 1em;
-    padding: 10px;
+    padding: 0.75rem 0.5rem;
     outline: none;
     border: none;
     background: $input-background;
@@ -46,7 +50,7 @@
 }
 
 .form-header {
-  padding: 4rem 1rem;
+  padding: 2rem 0;
   grid-area: main;
   width: 100%;
   max-width: 700px;
@@ -78,13 +82,14 @@
 
 .form-textarea {
   width: 100%;
-  padding: 10px;
+  height: 2.5rem;
   outline: none;
   border: none;
   background: $input-background;
-  margin-bottom: 1.5rem;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.85rem;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
 }
 
 .form-image-preview {
