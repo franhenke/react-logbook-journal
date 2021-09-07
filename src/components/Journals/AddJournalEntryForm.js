@@ -56,14 +56,13 @@ export default function AddJournalEntryForm() {
         <input
           onChange={(event) => handleChange(event)}
           value={values.date || ''}
-          setValue={values.date || ''}
           type="date"
           name="date"
           id="date"
           max={currentDate}
           required
           aria-describedby="required-description"
-          autofocus
+          autoFocus
           error={inputErrors.date}
           data-testid="filter-input-date"
         />
@@ -165,7 +164,6 @@ export default function AddJournalEntryForm() {
     data.append('file', files[0])
     data.append('upload_preset', PRESET)
     setIsLoading(true)
-    console.log(files)
 
     const response = await fetch(
       `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`,
@@ -174,13 +172,11 @@ export default function AddJournalEntryForm() {
     const image = await response.json()
     setImage(image.secure_url)
     setIsLoading(false)
-    console.log(image)
   }
 
   function handleLocalStorage(values) {
     handleJournalEntry(values)
     values.image = image
-    console.log(values)
     return values
   }
 }

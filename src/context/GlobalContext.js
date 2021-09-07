@@ -20,13 +20,15 @@ export const GlobalProvider = ({ children }) => {
   const [journalEntries, setJournalEntries] = useState(
     loadFromLocal('myJournalEntries') || journalMocks
   )
+
+  console.log(editing)
   useEffect(() => {
     saveToLocal('myJournalEntries', journalEntries)
   }, [journalEntries])
 
   function handleJournalEntry(newJournalEntry) {
     newJournalEntry.id = uuid()
-    setJournalEntries([...journalEntries, newJournalEntry])
+    setJournalEntries([newJournalEntry, ...journalEntries])
   }
 
   const deleteEntry = (id) => {
