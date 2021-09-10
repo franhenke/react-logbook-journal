@@ -6,6 +6,7 @@
 @import './3-UI/button';
 @import './3-UI/header';
 @import './3-UI/error-messages';
+@import './3-UI/sidebar';
 
 // 04-Components
 @import './4-components/journal-form';
@@ -24,7 +25,7 @@
 @import './5-pages/not-found-page';
 
 // Typography
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 * {
   margin: 0;
@@ -38,11 +39,12 @@ a {
 }
 
 html body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   margin: 0;
   padding: 0;
   background-color: $background;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -56,3 +58,4 @@ h3,
 h4 {
   font-weight: 400;
 }
+

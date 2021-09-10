@@ -1,20 +1,13 @@
 import React from 'react'
 import RecentJournalsList from '../components/Journals/RecentJournalsList'
-import Tabbar from '../components/Tabbar/Tabbar'
+import Frame from '../components/UI/frame'
 import WeatherWidget from '../components/Weather/WeatherWidget'
 
-const Home = () => {
+export const HomeScreenComponent = () => {
   return (
-    <div className="grid">
-      <div className="homepage-header">
-        <h2>Your recent</h2>
-        <h1 className="page-headline"> journal entries</h1>
-      </div>
-      <WeatherWidget />
+    <Frame screenName="Home">
+      <h1>Your recent journals</h1>
       <RecentJournalsList />
-      <Tabbar />
-    </div>
+    </Frame>
   )
 }
-
-export default Home
