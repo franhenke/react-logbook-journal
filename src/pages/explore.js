@@ -1,22 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from '../constants/routes'
-import Tabbar from '../components/Tabbar/Tabbar'
+import Frame from '../components/UI/frame'
 
-export const Explore = () => {
+export const ExploreScreenComponent = () => {
   return (
-    <div className="grid under-construction-container">
-      <div className="under-construction">
-        <h1>Nothing to explore, yet</h1>
-        <p>This site is still under construction</p>
-        <Link className="not-found-link" to={ROUTES.HOME}>
-          Go back Home
-        </Link>
+    <Frame screenName="Explore">
+      <div className="grid under-construction-container">
+        <div className="under-construction">
+          <h1>Nothing to explore, yet</h1>
+          <p>This site is still under construction</p>
+          <Link className="not-found-link" to={ROUTES.HOME}>
+            Go back Home
+          </Link>
+        </div>
       </div>
-
-      <Tabbar />
-    </div>
+    </Frame>
   )
 }
-
-export default Explore

@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from '../constants/routes'
 import notFound from '../assets/images/notFound.svg'
-import Tabbar from '../components/Tabbar/Tabbar'
+import Frame from '../components/UI/frame'
 
-export const NotFound = () => {
+export const NotFoundScreenComponent = () => {
   return (
-    <div className="grid">
+    <Frame screenName="404">
       <div className="not-found-container">
         <h1>It seems you got lost</h1>
         <p>
@@ -17,10 +17,6 @@ export const NotFound = () => {
         </Link>
       </div>
       <img className="not-found" src={notFound} alt="" />
-
-      <Tabbar />
-    </div>
+    </Frame>
   )
 }
-
-export default NotFound

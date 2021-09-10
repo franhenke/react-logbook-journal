@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import * as ROUTES from '../../constants/routes'
 
 export default function SidebarComponent({ expanded, toggleSidebar }) {
   return (
@@ -34,7 +35,7 @@ export default function SidebarComponent({ expanded, toggleSidebar }) {
       <div className={`sidebar ${expanded ? 'sidebar--expanded' : ''}`}>
         <NavLink
           className="sidebar__link"
-          to="/home"
+          to={ROUTES.HOME}
           activeClassName="sidebar__link--selected"
         >
           <svg className="sidebar__link__icon" viewBox="0 0 24 24">
@@ -52,7 +53,7 @@ export default function SidebarComponent({ expanded, toggleSidebar }) {
         </NavLink>
         <NavLink
           className="sidebar__link"
-          to="/products"
+          to={ROUTES.JOURNALS}
           activeClassName="sidebar__link--selected"
         >
           <svg className="sidebar__link__icon" viewBox="0 0 24 24">
@@ -71,7 +72,7 @@ export default function SidebarComponent({ expanded, toggleSidebar }) {
         </NavLink>
         <NavLink
           className="sidebar__link"
-          to="/customers"
+          to={ROUTES.BOOKMARKS}
           activeClassName="sidebar__link--selected"
         >
           <svg className="sidebar__link__icon" viewBox="0 0 24 24">
@@ -86,6 +87,25 @@ export default function SidebarComponent({ expanded, toggleSidebar }) {
             </g>
           </svg>
           <span className="sidebar__link__route">Saved</span>
+        </NavLink>
+        <NavLink
+          className="sidebar__link"
+          to={ROUTES.EXPLORE}
+          activeClassName="sidebar__link--selected"
+        >
+          <svg className="sidebar__link__icon" viewBox="0 0 24 24">
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </g>
+          </svg>
+          <span className="sidebar__link__route">Explore</span>
         </NavLink>
       </div>
     </>

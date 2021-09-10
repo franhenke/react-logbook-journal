@@ -1,14 +1,11 @@
 import React from 'react'
 import AddJournalEntryForm from '../components/Journals/AddJournalEntryForm'
-import Tabbar from '../components/Tabbar/Tabbar'
+import Frame from '../components/UI/frame'
 
-export const AddJournal = () => {
+export const AddJournalScreenComponent = () => {
   return (
-    <div className="grid">
+    <Frame screenName="Home">
       <AddJournalEntryForm />
-      <Tabbar />
-    </div>
+    </Frame>
   )
 }
-
-export default AddJournal

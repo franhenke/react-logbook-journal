@@ -1,13 +1,10 @@
 import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
-import * as ROUTES from '../constants/routes'
-import { Link } from 'react-router-dom'
-import chevron from '../assets/icons/chevron-left.svg'
-import JournalList from '../components/Journals/JournalList'
-import Tabbar from '../components/Tabbar/Tabbar'
 import Searchbar from '../components/Searchbar/Searchbar'
+import Frame from '../components/UI/frame'
+import JournalEntry from '../components/Journals/JournalEntry'
 
-const Journals = () => {
+export const JournalsScreenComponent = () => {
   const { journalEntries } = useContext(GlobalContext)
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -20,14 +17,7 @@ const Journals = () => {
   )
 
   return (
-    <div className="grid">
-      <div className="page-header">
-        <Link to={ROUTES.HOME}>
-          <img className="back-home-icon" src={chevron} alt="" />
-        </Link>
-        <h2>Your</h2>
-        <h1 className="page-headline"> journal entries</h1>
-      </div>
+    <Frame screenName="Journals">
       {journalEntries.length === 0 ? (
         <div className="message-no-entries">
           <h2>You have no journal entries, yet</h2>
@@ -40,11 +30,14 @@ const Journals = () => {
       {journalEntries.length > 0 && results.length === 0 ? (
         <div>No entries found. Please change your search.</div>
       ) : (
-        <JournalList searchResults={results} />
+        <>
+        <div className="journal-list-container">
+          {results.map((entry) => (
+            <JournalEntry key={entry.id} entry={entry} />
+          ))}
+        </div>
+        </>
       )}
-      <Tabbar />
-    </div>
+    </Frame>
   )
 }
-
-export default Journals

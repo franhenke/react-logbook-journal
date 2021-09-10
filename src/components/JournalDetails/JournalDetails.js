@@ -8,9 +8,9 @@ import bookmarkIconFilled from '../../assets/icons/bookmark-filled.svg'
 import heroImage from '../../assets/images/hero.jpg'
 import edit from '../../assets/icons/edit.svg'
 import EditJournalForm from '../../components/Journals/EditJournalForm'
-import Tabbar from '../Tabbar/Tabbar'
+import Frame from '../UI/frame'
 
-const JournalDetails = () => {
+export const JournalDetailsComponent = () => {
   const {
     journalEntries,
     editing,
@@ -56,7 +56,7 @@ const JournalDetails = () => {
   } = selectedEntry
 
   return (
-    <div className="grid">
+    <Frame screenName="Detail">
       <div className="featured-image-wrapper">
         {image ? <img src={image} alt="" /> : <img src={heroImage} alt="" />}
       </div>
@@ -101,9 +101,6 @@ const JournalDetails = () => {
           />
         </DialogContent>
       </Dialog>
-      <Tabbar />
-    </div>
+    </Frame>
   )
 }
-
-export default JournalDetails
