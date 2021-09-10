@@ -39,7 +39,7 @@ export default function AddJournalEntryForm() {
 
   const handleGoBack = useCallback(() => {
     history.goBack()
-  }, [])
+  }, [history])
 
   const disableButton =
     !values.date ||
@@ -81,7 +81,7 @@ export default function AddJournalEntryForm() {
           name="category"
           id="category"
         >
-          <option value="" selected disabled hidden>
+          <option value="" defaultValue disabled hidden>
             Select a Category
           </option>
           <option value="Memory">Memory</option>

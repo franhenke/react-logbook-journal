@@ -1,0 +1,79 @@
+.sidebar {
+  background: black;
+  height: 100%;
+  left: 0;
+  padding-top: 5rem;
+  position: fixed;
+  transform: translateX(-250px);
+  transition: transform 250ms ease-in-out;
+  width: 250px;
+  z-index: 10;
+
+  &--expanded {
+    transform: translateX(0);
+    z-index: 10;
+  }
+
+  &__toggle {
+    background-color: transparent;
+    box-shadow: none;
+    display: block;
+    height: 60px !important;
+    overflow: hidden;
+    position: fixed;
+    width: 4rem;
+    z-index: 15;
+
+    &__icon {
+      height: 2rem;
+      stroke: rgb(128, 128, 128);
+      width: 2rem;
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+    }
+  }
+
+  &__link {
+    color: rgb(128, 128, 128);
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: normal;
+    padding: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    text-decoration: none;
+
+    &__icon {
+      flex-shrink: 0;
+      height: 20px;
+      margin-right: 2rem;
+      stroke: rgb(128, 128, 128);
+      width: 20px;
+    }
+
+    &:hover,
+    &:hover svg {
+      color: #f1f1f1;
+      stroke: #f1f1f1;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    overflow: hidden;
+    transition: 250ms;
+    transform: none;
+    width: 5rem;
+
+    &--expanded {
+      width: 250px;
+      transition: 250ms;
+    }
+  }
+
+  @media screen and (max-height: 450px) {
+    &__link {
+      font-size: 18px;
+    }
+  }
+}
