@@ -7,9 +7,21 @@ import {
   InfoWindow,
 } from '@react-google-maps/api'
 import { formatRelative } from 'date-fns'
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from 'use-places-autocomplete'
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxList,
+  ComboboxOption,
+} from '@reach/combobox'
 import '@reach/combobox/styles.css'
 import { useCallback } from 'react'
 import { useRef } from 'react'
+import MapSearch from './mapsearch'
 
 const libraries = ['places']
 const mapContainerStyle = {
@@ -52,11 +64,20 @@ export default function MapComponent() {
     mapRef.current = map
   }, [])
 
+  const panToMap = useCallback(
+    ({lat, lng}) => {
+      mapRef.current.panTo({lat, lng})
+      mapRef.current.setZoom(14)
+    },
+    [],
+  )
+
   if (loadError) return 'Error loading maps'
   if (!isLoaded) return 'Loading Maps'
 
   return (
-    <div>
+    <div className="map">
+    <MapSearch panTo={panToMap}/>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={8}

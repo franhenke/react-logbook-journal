@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>plus-square</title>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fill-rule="evenodd">
         <g id="iPhone-11-Copy-2" transform="translate(-190.000000, -837.000000)">
             <g id="Navigation-Copy" transform="translate(2.000000, 824.000000)">
                 <g id="plus-square" transform="translate(188.000000, 13.000000)">
                     <rect id="Rectangle" fill="#A3C2CC" x="0" y="0" width="36" height="36" rx="10"></rect>
-                    <line x1="17.5" y1="12" x2="17.5" y2="25" id="Path" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
-                    <line x1="11" y1="18.5" x2="24" y2="18.5" id="Path" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="17.5" y1="12" x2="17.5" y2="25" id="Path" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round"></line>
+                    <line x1="11" y1="18.5" x2="24" y2="18.5" id="Path" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round"></line>
                 </g>
             </g>
         </g>
