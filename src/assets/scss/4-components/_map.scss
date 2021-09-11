@@ -1,0 +1,15 @@
+.map-search {
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  z-index: 5;
+
+  input {
+    padding: 0.25rem 0.5rem;
+  }
+}
