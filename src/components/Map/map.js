@@ -33,6 +33,7 @@ export default function MapComponent() {
     libraries,
   })
   const [markers, setMarkers] = useState([])
+  const markerImage = '/public/bear.svg?raw=true'
 
   if (loadError) return 'Error loading maps'
   if (!isLoaded) return 'Loading Maps'
@@ -54,7 +55,20 @@ export default function MapComponent() {
             },
           ])
         }}
-      ></GoogleMap>
+      >
+        {markers.map((marker) => (
+          <Marker
+            key={marker.time.toISOString()}
+            position={{ lat: marker.lat, lng: marker.lng }}
+            icon={{
+              url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+              scaledSize: new window.google.maps.Size(30, 30),
+              origin: new window.google.maps.Point(0, 0),
+              anchor: new window.google.maps.Point(15, 15),
+            }}
+          />
+        ))}
+      </GoogleMap>
     </div>
   )
 }
