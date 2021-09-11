@@ -64,12 +64,20 @@ export default function MapComponent() {
     mapRef.current = map
   }, [])
 
+  const panToMap = useCallback(
+    ({lat, lng}) => {
+      mapRef.current.panTo({lat, lng})
+      mapRef.current.setZoom(14)
+    },
+    [],
+  )
+
   if (loadError) return 'Error loading maps'
   if (!isLoaded) return 'Loading Maps'
 
   return (
     <div className="map">
-    <MapSearch />
+    <MapSearch panTo={panToMap}/>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={8}

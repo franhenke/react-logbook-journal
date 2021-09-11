@@ -11,7 +11,7 @@ import {
   ComboboxOption,
 } from '@reach/combobox'
 
-export default function MapSearch() {
+export default function MapSearch({ panTo }) {
   const {
     ready,
     value,
@@ -27,8 +27,16 @@ export default function MapSearch() {
   return (
     <div className="map-search">
       <Combobox
-        onSelect={(address) => {
-          console.log(address)
+        onSelect={async (address) => {
+          setValue(address, false)
+          clearSuggestions()
+          try {
+            const result = await getGeocode({ address })
+            const { lat, lng } = await getLatLng(result[0])
+            panTo({ lat, lng })
+          } catch (error) {
+            console.log(error)
+          }
         }}
       >
         <ComboboxInput
@@ -39,6 +47,12 @@ export default function MapSearch() {
           disabled={!ready}
           placeholder="Enter a place"
         />
+        <ComboboxPopover>
+          {status === 'OK' &&
+            data.map(({ id, description }) => (
+              <ComboboxOption key={id} value={description} />
+            ))}
+        </ComboboxPopover>
       </Combobox>
     </div>
   )
