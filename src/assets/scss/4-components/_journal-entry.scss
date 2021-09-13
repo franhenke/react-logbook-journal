@@ -112,3 +112,61 @@
     z-index: -10;
   }
 }
+
+.journal-list {
+  &__container {
+    overflow-y: auto;
+    height: 100%;
+    padding: 2rem 0;
+    @media screen and (min-width: 768px) {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  &__item {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    margin: 0.5rem auto;
+    overflow: hidden;
+    padding: 6.5rem 0 0;
+    position: relative;
+    text-align: left;
+    transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+    &__body {
+      background: linear-gradient(
+        hsla(0, 0%, 0%, 0),
+        hsla(0, 0%, 33%, 0.618) 45%,
+        hsla(0, 0%, 23%, 0.92)
+      );
+      height: 100%;
+      padding: 2rem 1rem;
+
+      &__place {
+        color: rgba(255, 255, 255, 0.762);
+        position: absolute;
+        top: 0;
+      }
+
+      &__caption {
+        color: rgba(255, 255, 255, 0.886);
+        font-weight: 600;
+        line-height: 1.5rem;
+        max-width: 100%;
+        width: max-content;
+      }
+
+      &__date {
+        color: rgba(255, 255, 255, 0.886);
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

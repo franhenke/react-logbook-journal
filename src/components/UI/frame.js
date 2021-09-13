@@ -18,15 +18,15 @@ export default function Frame({ children, screenName }) {
   return (
     <div className="frame">
       <SidebarComponent expanded={isExpanded} toggleSidebar={toggleSidebar} />
-
+      <div
+        className={`frame__overlay ${
+          isExpanded ? 'frame__overlay--expanded' : ''
+        }`}
+      />
       <div
         className={`frame__main ${isExpanded ? 'frame__main--expanded' : ''}`}
       >
-        <div
-          className={`frame__overlay ${
-            isExpanded ? 'frame__overlay--expanded' : ''
-          }`}
-        />
+        <h1 className="frame__main__title">{screenName}</h1>
         {children}
       </div>
     </div>
