@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import AddJournal from './addjournal'
 import SidebarComponent from './sidebar'
 
 export default function Frame({ children, screenName }) {
@@ -15,6 +17,8 @@ export default function Frame({ children, screenName }) {
     localStorage.setItem('sidebar-expanded', 'true')
   }
 
+  const location = useLocation()
+
   return (
     <div className="frame">
       <SidebarComponent expanded={isExpanded} toggleSidebar={toggleSidebar} />
@@ -28,6 +32,8 @@ export default function Frame({ children, screenName }) {
       >
         <h1 className="frame__main__title">{screenName}</h1>
         {children}
+        {location.pathname !== '/addjournal' &&
+          !location.pathname.includes('journalentry') && <AddJournal />}
       </div>
     </div>
   )

@@ -22,9 +22,17 @@
     position: relative;
     height: 100%;
     margin-top: 2rem;
-    padding: 0 2rem;
+    padding: 0 0.5rem;
     background: $background;
     border: 0.5px solid rgba(194, 195, 201, 0.1);
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      padding: 0 2rem;
+    }
   }
 
   &__bookmark-icon {
@@ -92,6 +100,8 @@
     color: $text-color;
     opacity: 80%;
     margin-bottom: 1em;
+    overflow-y: auto;
+    height: 300px;
 
     @media (min-width: 768px) {
       margin: 1.5em 6em;
@@ -109,15 +119,14 @@
   }
 
   @media screen and (min-width: 768px) {
-    margin-left: -80px;
-
     &__featured-image-wrapper {
-       height: 40%;
+      height: 40%;
     }
 
     &__content-container {
-      margin-left: 80px;
-      padding: 2rem;
+      width: 80%;
+      margin: 0 auto;
+      padding: 32px 0;
     }
   }
 }

@@ -66,7 +66,10 @@ export const JournalDetailsComponent = () => {
           <h3 className="journal-details__category">{category}</h3>
           <h3 className="journal-details__caption">{caption}</h3>
           <h3 className="journal-details__date">{date}</h3>
-          <h3 className="journal-details-entry">{entry}</h3>
+          <div className="journal-details__entry">
+            <h3>{entry}</h3>
+          </div>
+
           {bookmarked === true ? (
             <button
               className="journal-details__bookmark-icon"

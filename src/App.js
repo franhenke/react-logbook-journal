@@ -3,12 +3,12 @@ import { Redirect, Switch, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { GlobalProvider } from './context/GlobalContext'
 import * as ROUTES from './constants/routes'
-import { HomeScreenComponent } from './pages/home'
-import { JournalsScreenComponent } from './pages/journals'
-import { AddJournalScreenComponent } from './pages/addjournal'
-import { BookmarksScreenComponent } from './pages/bookmarks'
-import { NotFoundScreenComponent } from './pages/notfound'
-import { ExploreScreenComponent } from './pages/explore'
+import { HomeScreenComponent } from './screens/home'
+import { JournalsScreenComponent } from './screens/journals'
+import { AddJournalScreenComponent } from './screens/addjournal'
+import { BookmarksScreenComponent } from './screens/bookmarks'
+import { NotFoundScreenComponent } from './screens/notfound'
+import { ExploreScreenComponent } from './screens/explore'
 import { JournalDetailsComponent } from './components/JournalDetails/JournalDetails'
 
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
             component={() => <JournalsScreenComponent />}
           />
           <Route
-            path={'/journals/:entryId'}
+            path={'/journalentry/:entryId'}
             component={() => <JournalDetailsComponent />}
           />
           <Route

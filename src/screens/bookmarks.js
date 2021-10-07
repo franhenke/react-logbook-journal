@@ -13,7 +13,7 @@ export const BookmarksScreenComponent = () => {
     <Frame screenName="Saved">
       <div className="journal-list__container">
         {bookmarkedJournals.map((bookmark) => (
-          <Link to={`/journals/${bookmark.caption}`} key={bookmark.caption}>
+          <Link to={`/journalentry/${bookmark.caption}`} key={bookmark.caption}>
             <div
               className="journal-list__item"
               style={

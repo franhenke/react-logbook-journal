@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Frame from '../components/UI/frame'
-import WeatherWidget from '../components/Weather/WeatherWidget'
 import { GlobalContext } from '../context/GlobalContext'
 
 export const HomeScreenComponent = () => {
@@ -13,7 +12,10 @@ export const HomeScreenComponent = () => {
     <Frame screenName="Your recent journals">
       <div className="journal-list__container">
         {recentJournals.map((entry) => (
-          <Link to={`/journals/${entry.caption}`} key={entry.caption}>
+          <Link
+            to={`/journalentry/${entry.caption}`}
+            key={entry.caption}
+          >
             <div
               className="journal-list__item"
               style={
@@ -25,15 +27,11 @@ export const HomeScreenComponent = () => {
               }
             >
               <div className="journal-list__item__body">
-                <p className="journal-list__item__body__place">
-                  {entry.place}
-                </p>
+                <p className="journal-list__item__body__place">{entry.place}</p>
                 <h4 className="journal-list__item__body__caption">
                   {entry.caption}
                 </h4>
-                <h3 className="journal-list__item__body__date">
-                  {entry.date}
-                </h3>
+                <h3 className="journal-list__item__body__date">{entry.date}</h3>
               </div>
             </div>
           </Link>

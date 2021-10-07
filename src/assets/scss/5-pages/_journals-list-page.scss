@@ -6,7 +6,7 @@
   grid-template-columns: 30% 70%;
   border-bottom: 1px solid $border;
   margin: 10px 0;
-  padding-bottom: 1rem;
+  padding-bottom: 20px;
 
   &__body {
     &__place,
@@ -52,7 +52,7 @@
 
   &__delete {
     position: absolute;
-    bottom: 0;
+    bottom: 8px;
     right: 8px;
     height: 24px;
     width: 24px;
