@@ -8,21 +8,21 @@ const JournalEntry = ({ entry }) => {
   const { deleteEntry } = useContext(GlobalContext)
   return (
     <>
-      <div className="journal-entry_container">
+      <div className="journal-entry">
         {entry.image ? (
           <img src={entry.image} alt="" className="entry-image" />
         ) : (
           <img src={plusIcon} alt="" className="entry-image" />
         )}
-        <div className="journal-container">
+        <div className="journal-entry__body">
           <Link to={`/journals/${entry.caption}`}>
-            <p className="journal_place">{entry.place}</p>
-            <h4 className="journal_caption">{entry.caption}</h4>
-            <p className="journal_entry">{entry.entry}</p>
-            <p className="journal_date">{entry.date}</p>
+            <p className="journal-entry__body__place">{entry.place}</p>
+            <h4 className="journal-entry__body__caption">{entry.caption}</h4>
+            <p className="journal-entry__body__entry">{entry.entry}</p>
+            <p className="journal-entry__body__date">{entry.date}</p>
           </Link>
           <button
-            className="journal-button-delete"
+            className="journal-entry__delete"
             onClick={() => deleteEntry(entry.id)}
           >
             <img src={trashIcon} alt="delete" />

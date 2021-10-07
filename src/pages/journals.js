@@ -31,11 +31,11 @@ export const JournalsScreenComponent = () => {
         <div>No entries found. Please change your search.</div>
       ) : (
         <>
-        <div className="journal-list-container">
-          {results.map((entry) => (
-            <JournalEntry key={entry.id} entry={entry} />
-          ))}
-        </div>
+          <div className="journal-list__container">
+            {results.map((entry) => (
+              <JournalEntry key={entry.id} entry={entry} />
+            ))}
+          </div>
         </>
       )}
     </Frame>
