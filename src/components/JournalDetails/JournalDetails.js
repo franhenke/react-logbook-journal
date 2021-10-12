@@ -23,7 +23,7 @@ export const JournalDetailsComponent = () => {
 
   const { entryId } = useParams()
   const [selectedEntry] = journalEntries.filter(
-    (journalEntries) => entryId === journalEntries.caption
+    (journalEntries) => entryId === journalEntries.title
   )
 
   journalEntries.bookmarked = false
@@ -45,28 +45,28 @@ export const JournalDetailsComponent = () => {
     setEditing(false)
   }
 
-  const { image, place, date, category, caption, entry, bookmarked } =
+  const { image, place, date, category, title, entry, bookmarked } =
     selectedEntry
 
   return (
     <Frame screenName="Details">
-      <div className="journal-details">
-        <div className="journal-details__featured-image-wrapper">
+      <div className="journal-entry__details">
+        <div className="journal-entry__details__featured-image-wrapper">
           {image ? <img src={image} alt="" /> : <img src={heroImage} alt="" />}
           <button
-            className="journal-details__button-edit"
+            className="journal-entry__details__button-edit"
             onClick={() => editRow(selectedEntry)}
           >
             <img src={edit} alt="" />
           </button>
         </div>
 
-        <div className="journal-details__content-container">
-          <h3 className="journal-details__place">{place}</h3>
-          <h3 className="journal-details__category">{category}</h3>
-          <h3 className="journal-details__caption">{caption}</h3>
-          <h3 className="journal-details__date">{date}</h3>
-          <div className="journal-details__entry">
+        <div className="journal-entry__details__content-container">
+          <h3 className="journal-entry__details__place">{place}</h3>
+          <h3 className="journal-entry__details__category">{category}</h3>
+          <h3 className="journal-entry__details__title">{title}</h3>
+          <h3 className="journal-entry__details__date">{date}</h3>
+          <div className="journal-entry__details__entry">
             <h3>{entry}</h3>
           </div>
 

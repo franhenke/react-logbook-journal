@@ -69,11 +69,11 @@ const EditJournalForm = ({ setEditing, selectedJournal, updateJournal }) => {
           <option value="Thoughts">Thoughts</option>
         </select>
 
-        <label>Caption</label>
+        <label>title</label>
         <input
           type="text"
-          name="caption"
-          value={editedEntry.caption}
+          name="title"
+          value={editedEntry.title}
           onChange={handleInputChange}
         />
         <label>Entry</label>

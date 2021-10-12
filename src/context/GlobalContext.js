@@ -11,7 +11,7 @@ export const GlobalProvider = ({ children }) => {
     date: '',
     place: '',
     category: '',
-    caption: '',
+    title: '',
     entry: '',
     image: '',
     bookmarked: false,
@@ -43,7 +43,7 @@ export const GlobalProvider = ({ children }) => {
       date: journal.date,
       place: journal.place,
       category: journal.category,
-      caption: journal.caption,
+      title: journal.title,
       entry: journal.entry,
       image: journal.image,
     })

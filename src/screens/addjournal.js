@@ -4,7 +4,7 @@ import Frame from '../components/UI/frame'
 
 export const AddJournalScreenComponent = () => {
   return (
-    <Frame screenName="Home">
+    <Frame screenName="Create a new memory">
       <AddJournalEntryForm />
     </Frame>
   )

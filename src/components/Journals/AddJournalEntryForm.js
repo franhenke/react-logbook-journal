@@ -9,6 +9,7 @@ import sendIcon from '../../assets/icons/send.svg'
 import { GlobalContext } from '../../context/GlobalContext'
 import useForm from '../../hooks/useForm'
 import validateJournalEntry from './JournalFormValidation.js'
+import CategoryTagsComponent from './form/categories'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
@@ -16,7 +17,7 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 AddJournalEntryForm.propTypes = {
   placeholder: PropTypes.string,
   date: PropTypes.string,
-  caption: PropTypes.string,
+  title: PropTypes.string,
   entry: PropTypes.string,
   place: PropTypes.string,
   handleChange: PropTypes.func,
@@ -31,9 +32,12 @@ export default function AddJournalEntryForm() {
     handleLocalStorage
   )
 
+  const hiddenFileInput = React.useRef(null)
+
   const currentDate = dayjs().format('DD/MM/YYYY')
   const [isLoading, setIsLoading] = useState(false)
   const [image, setImage] = useState('')
+  const [category, setCategory] = useState('')
 
   const history = useHistory()
 
@@ -41,132 +45,19 @@ export default function AddJournalEntryForm() {
     history.goBack()
   }, [history])
 
-  const disableButton =
-    !values.date ||
-    !values.caption ||
-    !values.entry ||
-    Object.keys(inputErrors).length !== 0
+  // const disableButton =
+  //   !values.date ||
+  //   !values.title ||
+  //   !values.entry ||
+  //   Object.keys(inputErrors).length !== 0
 
-  return (
-    <>
-      <button className="add-button-cancel" onClick={handleGoBack}>
-        <img src={cancelIcon} alt="cancel" />
-      </button>
-      <form className="form" onSubmit={handleSubmit} noValidate>
-        <div className="form-header">
-          <h2>Create</h2>
-          <h1 className="form-headline"> a new memory</h1>
-        </div>
-        <label htmlFor="date">
-          Date <span className="required">*</span>
-        </label>
-        <input
-          onChange={(event) => handleChange(event)}
-          value={values.date || ''}
-          type="date"
-          name="date"
-          id="date"
-          max={currentDate}
-          required
-          aria-describedby="required-description"
-          autoFocus
-          error={inputErrors.date}
-          data-testid="filter-input-date"
-        />
+  const handleClick = (event) => {
+    hiddenFileInput.current.click()
+  }
 
-        <label htmlFor="category">Category</label>
-        <select
-          onChange={(event) => handleChange(event)}
-          value={values.category || ''}
-          name="category"
-          id="category"
-        >
-          <option value="" defaultValue disabled hidden>
-            Select a Category
-          </option>
-          <option value="Memory">Memory</option>
-          <option value="Review">Review</option>
-          <option value="Thoughts">Thoughts</option>
-        </select>
-
-        <label htmlFor="place">Place</label>
-        <input
-          onChange={(event) => handleChange(event)}
-          value={values.place || ''}
-          type="text"
-          name="place"
-          id="place"
-          min="5"
-          placeholder="Add a place or location to your entry"
-          data-testid="filter-input-place"
-        />
-        <label htmlFor="caption">
-          Caption <span className="required">*</span>
-        </label>
-        <input
-          onChange={(event) => handleChange(event)}
-          value={values.caption || ''}
-          type="text"
-          name="caption"
-          id="caption"
-          min="5"
-          required
-          aria-describedby="required-description"
-          data-testid="caption"
-          placeholder="Add a title to your entry"
-          error={inputErrors.caption}
-        />
-        <label htmlFor="Entry">
-          Entry <span className="required">*</span>
-        </label>
-
-        <TextareaAutosize
-          className="form-textarea"
-          aria-describedby="required-description"
-          rowsMax={7}
-          aria-label="textarea"
-          onChange={(event) => handleChange(event)}
-          value={values.entry || ''}
-          type="text"
-          name="entry"
-          id="entry"
-          min="10"
-          required
-          placeholder="tell your story.."
-          error={inputErrors.entry}
-          data-testid="filter-input-entry"
-        />
-
-        <div>
-          {image ? (
-            <img src={image} alt="profile" className="form-image-preview" />
-          ) : (
-            <label htmlFor="image">
-              Image
-              <input
-                type="file"
-                name="image"
-                onChange={uploadImage}
-                value={values.image}
-              />
-            </label>
-          )}
-        </div>
-        {isLoading && <p>image is loading...</p>}
-
-        <button className="journal-button-submit" disabled={disableButton}>
-          <img src={sendIcon} alt="submit" />
-        </button>
-        <p
-          className="required-info_text"
-          aria-hidden="true"
-          id="required-description"
-        >
-          <span className="required">*</span>Required field
-        </p>
-      </form>
-    </>
-  )
+  const handleCategory = (event) => {
+    setCategory(event.target.value)
+  }
 
   async function uploadImage(event) {
     const files = event.target.files
@@ -187,6 +78,135 @@ export default function AddJournalEntryForm() {
   function handleLocalStorage(values) {
     handleJournalEntry(values)
     values.image = image
+    values.category = category
     return values
   }
+
+  return (
+    <>
+      {/* <button className="add-button-cancel" onClick={handleGoBack}>
+        <img src={cancelIcon} alt="cancel" />
+      </button> */}
+      <form className="form" onSubmit={handleSubmit} noValidate>
+        <div className="form__body">
+          <label htmlFor="date">
+            Date <span className="required">*</span>
+            <input
+              className="form__body__input"
+              onChange={(event) => handleChange(event)}
+              value={values.date || ''}
+              type="date"
+              name="date"
+              id="date"
+              max={currentDate}
+              required
+              aria-describedby="required-description"
+              autoFocus
+              error={inputErrors.date}
+              data-testid="filter-input-date"
+            />
+          </label>
+          <label htmlFor="place">
+            Place
+            <input
+              className="form__body__input"
+              onChange={(event) => handleChange(event)}
+              value={values.place || ''}
+              type="text"
+              name="place"
+              id="place"
+              min="5"
+              placeholder="Add a place or location to your entry"
+              data-testid="filter-input-place"
+            />
+          </label>
+          <label htmlFor="title">
+            Title <span className="required">*</span>
+            <input
+              className="form__body__input"
+              onChange={(event) => handleChange(event)}
+              value={values.title || ''}
+              type="text"
+              name="title"
+              id="title"
+              min="5"
+              required
+              aria-describedby="required-description"
+              data-testid="title"
+              placeholder="Add a title to your entry"
+              error={inputErrors.title}
+            />
+          </label>
+          <label htmlFor="Entry">
+            Entry <span className="required">*</span>
+            <TextareaAutosize
+              className="form__body__textarea"
+              style={{ boxSizing: 'border-box' }}
+              minRows={3}
+              maxRows={6}
+              defaultValue="Just a single line..."
+            />
+          </label>
+          <CategoryTagsComponent handleCategory={handleCategory} />
+        </div>
+        <div>
+          {image && (
+            <img
+              src={image}
+              alt="profile"
+              className="form__body__image-preview"
+            />
+          )}
+        </div>
+        {isLoading && <p>image is loading...</p>}
+        <div className="form__footer">
+          <>
+            <button type="button" onClick={handleClick}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                width="1em"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <path d="M21 15l-5-5L5 21" />
+                </g>
+              </svg>
+            </button>
+            <input
+              ref={hiddenFileInput}
+              type="file"
+              name="image"
+              onChange={uploadImage}
+              value={values.image}
+              style={{ display: 'none' }}
+            />
+          </>
+          <p
+            className="required-info_text"
+            aria-hidden="true"
+            id="required-description"
+          >
+            <span className="required">*</span>Required field
+          </p>
+          <div className="form__submit">
+            <button type="submit" className="journal-button-submit">
+              <img src={sendIcon} alt="submit" />
+            </button>
+          </div>
+        </div>
+      </form>
+    </>
+  )
 }

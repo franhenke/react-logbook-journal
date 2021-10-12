@@ -7,16 +7,16 @@ export default function validateJournalEntry(values) {
 
   if (
     values.place &&
-    values.caption &&
+    values.title &&
     values.place.length &&
-    values.caption.length < 2
+    values.title.length < 2
   ) {
     errors.place = 'Input too short'
   } else if (
     values.place &&
-    values.caption &&
+    values.title &&
     values.place.length &&
-    values.caption.length > 30
+    values.title.length > 30
   ) {
     errors.place = 'Input too long.'
   }
