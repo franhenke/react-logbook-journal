@@ -11,11 +11,11 @@ export const BookmarksScreenComponent = () => {
   )
   return (
     <Frame screenName="Saved">
-      <div className="journal-list__container">
+      <div className="journal-entry__list">
         {bookmarkedJournals.map((bookmark) => (
-          <Link to={`/journalentry/${bookmark.caption}`} key={bookmark.caption}>
+          <Link to={`/journalentry/${bookmark.title}`} key={bookmark.title}>
             <div
-              className="journal-list__item"
+              className="journal-entry__card"
               style={
                 bookmark.image
                   ? {
@@ -24,10 +24,16 @@ export const BookmarksScreenComponent = () => {
                   : undefined
               }
             >
-              <div className="journal-list__item__body">
-                <p className="journal-list__item__body__place">{bookmark.place}</p>
-                <h4 className="journal-list__item__body__caption">{bookmark.caption}</h4>
-                <h3 className="journal-list__item__body__date">{bookmark.date}</h3>
+              <div className="journal-entry__card__body">
+                <p className="journal-entry__card__body__place">
+                  {bookmark.place}
+                </p>
+                <h4 className="journal-entry__card__body__title">
+                  {bookmark.title}
+                </h4>
+                <h3 className="journal-entry__card__body__date">
+                  {bookmark.date}
+                </h3>
               </div>
             </div>
           </Link>

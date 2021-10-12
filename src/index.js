@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
 import theme from './theme'
-import './assets/scss/base.scss'
+import './index.scss'
 
 ReactDOM.render(
   <React.StrictMode>

@@ -8,21 +8,21 @@ const JournalEntry = ({ entry }) => {
   const { deleteEntry } = useContext(GlobalContext)
   return (
     <>
-      <div className="journal-entry">
+      <div className="journal-entry__grid-card">
         {entry.image ? (
-          <img src={entry.image} alt="" className="entry-image" />
+          <img src={entry.image} alt="" className="journal-entry__grid-card__preview" />
         ) : (
-          <img src={plusIcon} alt="" className="entry-image" />
+          <img src={plusIcon} alt="" className="journal-entry__grid-card__preview" />
         )}
-        <div className="journal-entry__body">
-          <Link to={`/journals/${entry.caption}`}>
-            <p className="journal-entry__body__place">{entry.place}</p>
-            <h4 className="journal-entry__body__caption">{entry.caption}</h4>
-            <p className="journal-entry__body__entry">{entry.entry}</p>
-            <p className="journal-entry__body__date">{entry.date}</p>
+        <div className="journal-entry__grid-card__body">
+          <Link to={`/journals/${entry.title}`}>
+            <p className="journal-entry__grid-card__body__place">{entry.place}</p>
+            <h4 className="journal-entry__grid-card__body__title">{entry.title}</h4>
+            <p className="journal-entry__grid-card__body__entry">{entry.entry}</p>
+            <p className="journal-entry__grid-card__body__date">{entry.date}</p>
           </Link>
           <button
-            className="journal-entry__delete"
+            className="journal-entry__grid-card__delete"
             onClick={() => deleteEntry(entry.id)}
           >
             <img src={trashIcon} alt="delete" />

@@ -1,0 +1,80 @@
+
+$text-link: #a3c2cc;
+$text-color: #3c3c3c;
+$text-color_grey: #414449;
+
+$background: #f8f9fa;
+$input-background: #f4f4f4;
+
+$mint: #d4e3e3;
+$mint-blue: #a3c2cc;
+$beige: #f6f6f6;
+$border: RGBA(204, 204, 204, 0.44);
+
+// 04-Components
+@import './components/Journals/journals';
+@import './components/Journals/form/base.scss';
+@import './components/UI/frame';
+@import './components/UI/sidebar';
+@import './components/UI/button.scss';
+
+// @import './assets/scss/4-components/journal-form';
+@import './assets/scss/4-components/journal-entry';
+@import './assets/scss/4-components/weather-widget';
+@import './assets/scss/4-components/tabbar';
+@import './assets/scss/4-components/recent-journals';
+@import './assets/scss/4-components/searchbar';
+@import './assets/scss/4-components/map';
+
+//05-Pages
+@import './screens/notfound';
+
+// Typography
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color_grey;
+}
+
+html body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  background-color: $background;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+
+li {
+  list-style: none;
+}
+
+input,
+textarea {
+  padding: 8px;
+}
+
+select {
+  padding: 4px 8px;
+}
+

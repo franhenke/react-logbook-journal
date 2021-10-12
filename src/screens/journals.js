@@ -10,7 +10,7 @@ export const JournalsScreenComponent = () => {
 
   const results = journalEntries.filter(
     (journalEntries) =>
-      journalEntries.caption.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      journalEntries.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       journalEntries.entry.toLowerCase().includes(searchTerm.toLowerCase()) ||
       journalEntries.place.toLowerCase().includes(searchTerm.toLowerCase()) ||
       journalEntries.category.toLowerCase().includes(searchTerm.toLowerCase())
@@ -31,7 +31,7 @@ export const JournalsScreenComponent = () => {
         <div>No entries found. Please change your search.</div>
       ) : (
         <>
-          <div className="journal-list__container">
+          <div className="journal-entry__list">
             {results.map((entry) => (
               <JournalEntry key={entry.id} entry={entry} />
             ))}

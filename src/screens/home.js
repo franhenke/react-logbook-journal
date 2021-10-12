@@ -10,14 +10,11 @@ export const HomeScreenComponent = () => {
 
   return (
     <Frame screenName="Your recent journals">
-      <div className="journal-list__container">
+      <div className="journal-entry__list">
         {recentJournals.map((entry) => (
-          <Link
-            to={`/journalentry/${entry.caption}`}
-            key={entry.caption}
-          >
+          <Link to={`/journalentry/${entry.title}`} key={entry.title}>
             <div
-              className="journal-list__item"
+              className="journal-entry__card"
               style={
                 entry.image
                   ? {
@@ -26,12 +23,12 @@ export const HomeScreenComponent = () => {
                   : undefined
               }
             >
-              <div className="journal-list__item__body">
-                <p className="journal-list__item__body__place">{entry.place}</p>
-                <h4 className="journal-list__item__body__caption">
-                  {entry.caption}
+              <div className="journal-entry__card__body">
+                <p className="journal-entry__card__body__place">{entry.place}</p>
+                <h4 className="journal-entry__card__body__title">
+                  {entry.title}
                 </h4>
-                <h3 className="journal-list__item__body__date">{entry.date}</h3>
+                <h3 className="journal-entry__card__body__date">{entry.date}</h3>
               </div>
             </div>
           </Link>
