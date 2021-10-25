@@ -7,17 +7,6 @@ import {
   InfoWindow,
 } from '@react-google-maps/api'
 import { formatRelative } from 'date-fns'
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from 'use-places-autocomplete'
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxPopover,
-  ComboboxList,
-  ComboboxOption,
-} from '@reach/combobox'
 import '@reach/combobox/styles.css'
 import { useCallback } from 'react'
 import { useRef } from 'react'
@@ -77,7 +66,7 @@ export default function MapComponent() {
 
   return (
     <div className="map">
-    <MapSearch panTo={panToMap}/>
+    <MapSearch panTo={panToMap} markers={markers} setMarkers={setMarkers}/>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={8}

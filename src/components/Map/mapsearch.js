@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -11,7 +11,7 @@ import {
   ComboboxOption,
 } from '@reach/combobox'
 
-export default function MapSearch({ panTo }) {
+export default function MapSearch({ panTo, setMarkers }) {
   const {
     ready,
     value,
@@ -34,6 +34,14 @@ export default function MapSearch({ panTo }) {
             const result = await getGeocode({ address })
             const { lat, lng } = await getLatLng(result[0])
             panTo({ lat, lng })
+            setMarkers((current) => [
+              ...current,
+              {
+                lat: lat,
+                lng: lng,
+                time: new Date(),
+              },
+            ])
           } catch (error) {
             console.log(error)
           }
