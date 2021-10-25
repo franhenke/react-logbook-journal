@@ -109,8 +109,11 @@
 //   color: $mint-blue;
 // }
 
+.add-new-journal {
+  height: 100%;
+}
 .form {
-  margin: 16px;
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -118,6 +121,8 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: 80%;
+    margin: 0 auto 32px;
 
     &__input,
     &__select {
@@ -136,8 +141,48 @@
       margin-bottom: 0.5rem;
     }
     &__image-preview {
-      width: 80px;
-      height: 80px;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+
+  &__footer {
+    &__add-image {
+      padding: 8px;
+      background: transparent;
+      border: none;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &__submit {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &__button {
+        width: 350px;
+        height: 40px;
+        background-color: black;
+        color: whitesmoke;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    &__body {
+      width: 80%;
+      margin: 0 auto;
     }
   }
 }
@@ -175,4 +220,12 @@
     width: 0;
     opacity: 0;
   }
+}
+
+.required-info_text {
+  position: absolute;
+  bottom: -32px;
+  left: 72px;
+  font-size: 12px;
+
 }

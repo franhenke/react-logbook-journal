@@ -10,6 +10,7 @@ import { GlobalContext } from '../../context/GlobalContext'
 import useForm from '../../hooks/useForm'
 import validateJournalEntry from './JournalFormValidation.js'
 import CategoryTagsComponent from './form/categories'
+import MapSearch from '../Map/mapsearch'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
@@ -25,7 +26,7 @@ AddJournalEntryForm.propTypes = {
   error: PropTypes.string,
 }
 
-export default function AddJournalEntryForm() {
+export default function AddJournalEntryForm({markers, setMarkers}) {
   const { handleJournalEntry } = useContext(GlobalContext)
   const [values, inputErrors, handleChange, handleSubmit] = useForm(
     validateJournalEntry,
@@ -82,73 +83,16 @@ export default function AddJournalEntryForm() {
     return values
   }
 
+    const logLocation = useCallback(({ lat, lng }) => {
+     console.log(lat, lng);
+    }, [])
+
   return (
-    <>
+    <div className="add-new-journal">
       {/* <button className="add-button-cancel" onClick={handleGoBack}>
         <img src={cancelIcon} alt="cancel" />
       </button> */}
       <form className="form" onSubmit={handleSubmit} noValidate>
-        <div className="form__body">
-          <label htmlFor="date">
-            Date <span className="required">*</span>
-            <input
-              className="form__body__input"
-              onChange={(event) => handleChange(event)}
-              value={values.date || ''}
-              type="date"
-              name="date"
-              id="date"
-              max={currentDate}
-              required
-              aria-describedby="required-description"
-              autoFocus
-              error={inputErrors.date}
-              data-testid="filter-input-date"
-            />
-          </label>
-          <label htmlFor="place">
-            Place
-            <input
-              className="form__body__input"
-              onChange={(event) => handleChange(event)}
-              value={values.place || ''}
-              type="text"
-              name="place"
-              id="place"
-              min="5"
-              placeholder="Add a place or location to your entry"
-              data-testid="filter-input-place"
-            />
-          </label>
-          <label htmlFor="title">
-            Title <span className="required">*</span>
-            <input
-              className="form__body__input"
-              onChange={(event) => handleChange(event)}
-              value={values.title || ''}
-              type="text"
-              name="title"
-              id="title"
-              min="5"
-              required
-              aria-describedby="required-description"
-              data-testid="title"
-              placeholder="Add a title to your entry"
-              error={inputErrors.title}
-            />
-          </label>
-          <label htmlFor="Entry">
-            Entry <span className="required">*</span>
-            <TextareaAutosize
-              className="form__body__textarea"
-              style={{ boxSizing: 'border-box' }}
-              minRows={3}
-              maxRows={6}
-              defaultValue="Just a single line..."
-            />
-          </label>
-          <CategoryTagsComponent handleCategory={handleCategory} />
-        </div>
         <div>
           {image && (
             <img
@@ -158,10 +102,67 @@ export default function AddJournalEntryForm() {
             />
           )}
         </div>
+        <div className="form__body">
+          <input
+            className="form__body__input"
+            onChange={(event) => handleChange(event)}
+            value={values.date || ''}
+            type="date"
+            name="date"
+            id="date"
+            max={currentDate}
+            required
+            aria-describedby="required-description"
+            autoFocus
+            error={inputErrors.date}
+            data-testid="filter-input-date"
+            aria-label="select date"
+          />
+          <input
+            className="form__body__input"
+            onChange={(event) => handleChange(event)}
+            value={values.place || ''}
+            type="text"
+            name="place"
+            id="place"
+            min="5"
+            placeholder="Add a place or location to your entry"
+            data-testid="filter-input-place"
+            aria-label="select location"
+          />
+          <input
+            className="form__body__input"
+            onChange={(event) => handleChange(event)}
+            value={values.title || ''}
+            type="text"
+            name="title"
+            id="title"
+            min="5"
+            required
+            aria-describedby="required-description"
+            data-testid="title"
+            placeholder="Add a title to your entry *"
+            error={inputErrors.title}
+            aria-label="title"
+          />
+          <TextareaAutosize
+            className="form__body__textarea"
+            style={{ boxSizing: 'border-box' }}
+            minrows={3}
+            maxrows={6}
+            defaultValue="Just a single line... *"
+            aria-label="entry"
+          />
+          <CategoryTagsComponent handleCategory={handleCategory} />
+        </div>
         {isLoading && <p>image is loading...</p>}
         <div className="form__footer">
-          <>
-            <button type="button" onClick={handleClick}>
+          <div className="form__footer__submit">
+            <button
+              type="button"
+              onClick={handleClick}
+              className="form__footer__add-image"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
@@ -174,9 +175,9 @@ export default function AddJournalEntryForm() {
                 <g
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
                   <circle cx="8.5" cy="8.5" r="1.5" />
@@ -192,21 +193,23 @@ export default function AddJournalEntryForm() {
               value={values.image}
               style={{ display: 'none' }}
             />
-          </>
-          <p
-            className="required-info_text"
-            aria-hidden="true"
-            id="required-description"
-          >
-            <span className="required">*</span>Required field
-          </p>
-          <div className="form__submit">
-            <button type="submit" className="journal-button-submit">
-              <img src={sendIcon} alt="submit" />
+            <button
+              type="submit"
+              className="form__footer__submit__button"
+              aria-label="submit"
+            >
+              Save memory
             </button>
           </div>
         </div>
+        <p
+          className="required-info_text"
+          aria-hidden="true"
+          id="required-description"
+        >
+          <span className="required">*</span>Required field
+        </p>
       </form>
-    </>
+    </div>
   )
 }

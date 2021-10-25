@@ -72,9 +72,14 @@ li {
 input,
 textarea {
   padding: 8px;
+  background: transparent;
+  border: none;
 }
 
 select {
   padding: 4px 8px;
 }
 
+.visuallyhidden {
+  display: none;
+}

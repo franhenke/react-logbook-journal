@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Redirect, Switch, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { GlobalProvider } from './context/GlobalContext'
@@ -12,6 +12,8 @@ import { ExploreScreenComponent } from './screens/explore'
 import { JournalDetailsComponent } from './components/JournalDetails/JournalDetails'
 
 const App = () => {
+  const [markers, setMarkers] = useState([])
+
   return (
     <>
       <GlobalProvider>
@@ -34,7 +36,12 @@ const App = () => {
           <Route
             exact
             path={ROUTES.JOURNALFORM}
-            component={() => <AddJournalScreenComponent />}
+            component={() => (
+              <AddJournalScreenComponent
+                markers={markers}
+                setMarkers={setMarkers}
+              />
+            )}
           />
           <Route
             exact
@@ -44,7 +51,12 @@ const App = () => {
           <Route
             exact
             path={ROUTES.EXPLORE}
-            component={() => <ExploreScreenComponent />}
+            component={() => (
+              <ExploreScreenComponent
+                markers={markers}
+                setMarkers={setMarkers}
+              />
+            )}
           />
           <Route component={NotFoundScreenComponent} />
         </Switch>

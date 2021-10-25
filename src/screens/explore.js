@@ -5,10 +5,10 @@ import Frame from '../components/UI/frame'
 import MapComponent from '../components/Map/map'
 
 
-export const ExploreScreenComponent = () => {
+export const ExploreScreenComponent = ({markers, setMarkers}) => {
   return (
     <Frame screenName="Explore">
-      <MapComponent />
+      <MapComponent markers={markers} setMarkers={setMarkers}/>
     </Frame>
   )
 }

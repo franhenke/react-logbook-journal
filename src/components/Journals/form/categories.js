@@ -5,12 +5,9 @@ export default function CategoryTagsComponent({ handleCategory }) {
 
   return (
     <>
-      <h4>
-        Category <span className="required">*</span>
-      </h4>
       <div className="category">
         {categories.map((option) => (
-          <label className="category__label">
+          <label className="category__label" key={option}>
             <input
               className="category__input"
               type="radio"

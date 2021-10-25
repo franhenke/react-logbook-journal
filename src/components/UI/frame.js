@@ -30,7 +30,9 @@ export default function Frame({ children, screenName }) {
       <div
         className={`frame__main ${isExpanded ? 'frame__main--expanded' : ''}`}
       >
-        <h1 className="frame__main__title">{screenName}</h1>
+        {location.pathname !== '/addjournal' && (
+          <h1 className="frame__main__title">{screenName}</h1>
+        )}
         {children}
         {location.pathname !== '/addjournal' &&
           !location.pathname.includes('journalentry') && <AddJournal />}

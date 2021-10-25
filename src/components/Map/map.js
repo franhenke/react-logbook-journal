@@ -29,12 +29,12 @@ const options = {
   zoomControl: true,
 }
 
-export default function MapComponent() {
+export default function MapComponent({markers, setMarkers}) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   })
-  const [markers, setMarkers] = useState([])
+  
   const [selectedMarker, setSelectedMarker] = useState(null)
 
   const onMapClick = useCallback((event) => {
